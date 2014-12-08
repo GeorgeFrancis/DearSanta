@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="personName" optional="YES" attributeType="String" defaultValueString="name......" syncable="YES"/>
+        <attribute name="personPresent" optional="YES" attributeType="String" defaultValueString="present...." syncable="YES"/>
+        <attribute name="personPresentBrought" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="personPresentPrice" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>
