@@ -7,20 +7,34 @@
 //
 
 #import "AddPersonViewController.h"
+#import "AppDelegate.h"
+
+
 
 @interface AddPersonViewController ()
 
+
+
 @end
+
+
 
 @implementation AddPersonViewController
 
+
+
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.personNameTextField.text = [self.currentPerson personName];
-    self.presentTextField.text = [self.currentPerson personPresent];
-  //  self.presentPriceTextField.text = [self.currentPerson personPresentPrice];
+ //   self.personNameTextField.text = [self.currentPerson personName];
+ //   self.presentTextField.text = [self.currentPerson personPresent];
+    
+ //   NSString *strDeliveryID = [NSString stringWithFormat:@"%@",[self.currentPerson personPresentPrice]];
+    
+ //   self.presentPriceTextField.text = strDeliveryID;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,12 +58,39 @@
     
 }
 
-- (IBAction)save:(id)sender {
+- (IBAction)save:(id)sender
+{
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    [self.currentPerson setPersonName:self.personNameTextField.text];
-    [self.currentPerson setPersonPresent:self.presentTextField.text];
+    if (self.personNameTextField.text.length > 0)
+    {
+        Person *newPerson = (Person *) [NSEntityDescription insertNewObjectForEntityForName:@"Person"
+                                                                     inManagedObjectContext:[delegate managedObjectContext]];
+        
+        self.currentPerson = newPerson;
+        
+        
+        [self.currentPerson setPersonName:self.personNameTextField.text];
+        [self.currentPerson setPersonPresent:self.presentTextField.text];
+        
+        NSNumber *presentPrice = @([self.presentPriceTextField.text floatValue]);
+        [self.currentPerson setPersonPresentPrice:presentPrice];
+        
+        
+        if (self.broughtProductSwitch.on) {
+            [self.currentPerson setPersonPresentBrought:[NSNumber numberWithBool:YES]];
+        }
+        
+        else{
+            [self.currentPerson setPersonPresentBrought:[NSNumber numberWithBool:NO]];
+        }
+        
+        [delegate saveContext];
+    }
+
+    [self.navigationController popViewControllerAnimated:YES];
     
-    [self.delegate addPersonViewControllerDidSave];
+//    [self.delegate addPersonViewControllerDidSave];
 }
 
 @end

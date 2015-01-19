@@ -22,6 +22,23 @@
     self.personNameField.text = [self.currentPerson personName];
     self.presentNameField.text = [self.currentPerson personPresent];
     
+    NSNumber *presentPrice = [self.currentPerson personPresentPrice];
+    self.presentPriceField.text = [NSString stringWithFormat:@"%@",presentPrice];
+
+    if ([[self.currentPerson personPresentBrought] boolValue] == YES) {
+        self.presentBroughtSwitch.on = YES;
+    }
+    
+    else{
+        self.presentBroughtSwitch.on = NO;
+    }
+    
+    
+  //  bool *presentBrought = [[self.currentPerson personPresentBrought] boolValue];
+ //   self.presentBroughtSwitch.state = presentBrought;
+//
+//    BOOL isGPSOn = [[entity useGPS] boolValue];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +73,11 @@
 
 - (IBAction)doneEditing:(id)sender {
     
+    
+     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    
+    
     self.personNameField.enabled = NO;
     self.presentNameField.enabled = NO;
     self.presentPriceField.enabled = NO;
@@ -70,8 +92,32 @@
     _currentPerson.personName = self.personNameField.text;
     _currentPerson.personPresent = self.presentNameField.text;
     
-    AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    [myApp saveContext];
+    
+    NSNumber *presentPrice = @([self.presentPriceField.text floatValue]);
+    
+    _currentPerson.personPresentPrice = presentPrice;
+    
+    
+    
+  //  _currentPerson.personPresentBrought = [self.presentBroughtSwitch.state boolValue];
+
+
+    
+    if (self.presentBroughtSwitch.on) {
+        
+        
+        _currentPerson.personPresentBrought = [NSNumber numberWithBool:YES];
+    }
+    
+    else{
+        _currentPerson.personPresentBrought = [NSNumber numberWithBool:NO];
+    }
+
+     [delegate saveContext];
+    
+    
+//    AppDelegate *myApp = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+//    [myApp saveContext];
 
 }
 

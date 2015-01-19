@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B357F831A5B305C005B6114 /* babyDiaryHomePage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B357F821A5B305C005B6114 /* babyDiaryHomePage.png */; };
+		1B4DD2561A6D790F00C9C1B9 /* GirlsNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4DD2551A6D790F00C9C1B9 /* GirlsNames.plist */; };
+		1B4DD2581A6D791500C9C1B9 /* BoysNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B4DD2571A6D791500C9C1B9 /* BoysNames.plist */; };
+		1B4DD25B1A6D868500C9C1B9 /* BoysNamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4DD25A1A6D868500C9C1B9 /* BoysNamesViewController.m */; };
+		1B4DD25D1A6D88AC00C9C1B9 /* pregnantImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4DD25C1A6D88AC00C9C1B9 /* pregnantImage.png */; };
+		1B4DD2601A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4DD25F1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m */; };
+		1B4DD2631A6D93DC00C9C1B9 /* FavouritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */; };
+		1BBAF6E81A5C16DB0064A11A /* BabyNamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */; };
+		1BBAF6EF1A5C22A90064A11A /* BabyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBAF6EE1A5C22A90064A11A /* BabyName.m */; };
+		1BBAF6F21A5C230F0064A11A /* ShortListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */; };
 		1BBCC6A71A0CE4400035D5B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6A61A0CE4400035D5B2 /* main.m */; };
 		1BBCC6AA1A0CE4400035D5B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6A91A0CE4400035D5B2 /* AppDelegate.m */; };
 		1BBCC6AD1A0CE4400035D5B2 /* DearSanta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6AB1A0CE4400035D5B2 /* DearSanta.xcdatamodeld */; };
@@ -14,7 +24,6 @@
 		1BBCC6B31A0CE4400035D5B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BBCC6B11A0CE4400035D5B2 /* Main.storyboard */; };
 		1BBCC6B51A0CE4400035D5B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BBCC6B41A0CE4400035D5B2 /* Images.xcassets */; };
 		1BBCC6B81A0CE4400035D5B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBCC6B61A0CE4400035D5B2 /* LaunchScreen.xib */; };
-		1BBCC6C41A0CE4400035D5B2 /* DearSantaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6C31A0CE4400035D5B2 /* DearSantaTests.m */; };
 		1BBCC6CF1A0CE51C0035D5B2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6CE1A0CE51C0035D5B2 /* Person.m */; };
 		1BBCC6D21A0CE6560035D5B2 /* PersonTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6D11A0CE6560035D5B2 /* PersonTableTableViewController.m */; };
 		1BBCC6D51A0CF0050035D5B2 /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6D41A0CF0050035D5B2 /* AddPersonViewController.m */; };
@@ -32,7 +41,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1BBCC6A11A0CE4400035D5B2 /* DearSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B357F821A5B305C005B6114 /* babyDiaryHomePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = babyDiaryHomePage.png; sourceTree = "<group>"; };
+		1B4DD2551A6D790F00C9C1B9 /* GirlsNames.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GirlsNames.plist; sourceTree = "<group>"; };
+		1B4DD2571A6D791500C9C1B9 /* BoysNames.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BoysNames.plist; sourceTree = "<group>"; };
+		1B4DD2591A6D868500C9C1B9 /* BoysNamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoysNamesViewController.h; sourceTree = "<group>"; };
+		1B4DD25A1A6D868500C9C1B9 /* BoysNamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoysNamesViewController.m; sourceTree = "<group>"; };
+		1B4DD25C1A6D88AC00C9C1B9 /* pregnantImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pregnantImage.png; sourceTree = "<group>"; };
+		1B4DD25E1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavouriteNameViewController.h; sourceTree = "<group>"; };
+		1B4DD25F1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavouriteNameViewController.m; sourceTree = "<group>"; };
+		1B4DD2611A6D93DC00C9C1B9 /* FavouritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesTableViewController.h; sourceTree = "<group>"; };
+		1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesTableViewController.m; sourceTree = "<group>"; };
+		1BBAF6E61A5C16DB0064A11A /* BabyNamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyNamesTableViewController.h; sourceTree = "<group>"; };
+		1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyNamesTableViewController.m; sourceTree = "<group>"; };
+		1BBAF6ED1A5C22A90064A11A /* BabyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyName.h; sourceTree = "<group>"; };
+		1BBAF6EE1A5C22A90064A11A /* BabyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyName.m; sourceTree = "<group>"; };
+		1BBAF6F01A5C230F0064A11A /* ShortListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortListTableViewController.h; sourceTree = "<group>"; };
+		1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortListTableViewController.m; sourceTree = "<group>"; };
+		1BBCC6A11A0CE4400035D5B2 /* BabyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBCC6A51A0CE4400035D5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBCC6A61A0CE4400035D5B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1BBCC6A81A0CE4400035D5B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,7 +68,7 @@
 		1BBCC6B21A0CE4400035D5B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BBCC6B41A0CE4400035D5B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1BBCC6B71A0CE4400035D5B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1BBCC6BD1A0CE4400035D5B2 /* DearSantaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DearSantaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BBCC6BD1A0CE4400035D5B2 /* BabyDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBCC6C21A0CE4400035D5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBCC6C31A0CE4400035D5B2 /* DearSantaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DearSantaTests.m; sourceTree = "<group>"; };
 		1BBCC6CD1A0CE51C0035D5B2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -74,11 +99,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BBAF6F31A5C23390064A11A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BBCC6AB1A0CE4400035D5B2 /* DearSanta.xcdatamodeld */,
+				1BBAF6ED1A5C22A90064A11A /* BabyName.h */,
+				1BBAF6EE1A5C22A90064A11A /* BabyName.m */,
+				1BBCC6CD1A0CE51C0035D5B2 /* Person.h */,
+				1BBCC6CE1A0CE51C0035D5B2 /* Person.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1BBAF6F41A5C234E0064A11A /* ProductsList */ = {
+			isa = PBXGroup;
+			children = (
+				1BBCC6D01A0CE6560035D5B2 /* PersonTableTableViewController.h */,
+				1BBCC6D11A0CE6560035D5B2 /* PersonTableTableViewController.m */,
+				1BBCC6D61A0D0CDE0035D5B2 /* EditPersonViewController.h */,
+				1BBCC6D71A0D0CDE0035D5B2 /* EditPersonViewController.m */,
+				1BBCC6D31A0CF0050035D5B2 /* AddPersonViewController.h */,
+				1BBCC6D41A0CF0050035D5B2 /* AddPersonViewController.m */,
+			);
+			name = ProductsList;
+			sourceTree = "<group>";
+		};
+		1BBAF6F51A5C23620064A11A /* BabyNames */ = {
+			isa = PBXGroup;
+			children = (
+				1B4DD2571A6D791500C9C1B9 /* BoysNames.plist */,
+				1B4DD2551A6D790F00C9C1B9 /* GirlsNames.plist */,
+				1B4DD2591A6D868500C9C1B9 /* BoysNamesViewController.h */,
+				1B4DD25A1A6D868500C9C1B9 /* BoysNamesViewController.m */,
+				1B4DD25E1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.h */,
+				1B4DD25F1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m */,
+				1B4DD2611A6D93DC00C9C1B9 /* FavouritesTableViewController.h */,
+				1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */,
+				1BBAF6F01A5C230F0064A11A /* ShortListTableViewController.h */,
+				1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */,
+				1BBAF6E61A5C16DB0064A11A /* BabyNamesTableViewController.h */,
+				1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */,
+			);
+			name = BabyNames;
+			sourceTree = "<group>";
+		};
+		1BBAF6F61A5C23710064A11A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1B4DD25C1A6D88AC00C9C1B9 /* pregnantImage.png */,
+				1B357F821A5B305C005B6114 /* babyDiaryHomePage.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1BBCC6981A0CE4400035D5B2 = {
 			isa = PBXGroup;
 			children = (
-				1BBCC6A31A0CE4400035D5B2 /* DearSanta */,
-				1BBCC6C01A0CE4400035D5B2 /* DearSantaTests */,
+				1BBCC6A31A0CE4400035D5B2 /* BabyDiary */,
+				1BBCC6C01A0CE4400035D5B2 /* BabyDiaryTests */,
 				1BBCC6A21A0CE4400035D5B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,33 +164,29 @@
 		1BBCC6A21A0CE4400035D5B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1BBCC6A11A0CE4400035D5B2 /* DearSanta.app */,
-				1BBCC6BD1A0CE4400035D5B2 /* DearSantaTests.xctest */,
+				1BBCC6A11A0CE4400035D5B2 /* BabyDiary.app */,
+				1BBCC6BD1A0CE4400035D5B2 /* BabyDiaryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1BBCC6A31A0CE4400035D5B2 /* DearSanta */ = {
+		1BBCC6A31A0CE4400035D5B2 /* BabyDiary */ = {
 			isa = PBXGroup;
 			children = (
 				1BBCC6A81A0CE4400035D5B2 /* AppDelegate.h */,
 				1BBCC6A91A0CE4400035D5B2 /* AppDelegate.m */,
-				1BBCC6D01A0CE6560035D5B2 /* PersonTableTableViewController.h */,
-				1BBCC6D11A0CE6560035D5B2 /* PersonTableTableViewController.m */,
 				1BBCC6AE1A0CE4400035D5B2 /* ViewController.h */,
 				1BBCC6AF1A0CE4400035D5B2 /* ViewController.m */,
 				1BBCC6B11A0CE4400035D5B2 /* Main.storyboard */,
-				1BBCC6D61A0D0CDE0035D5B2 /* EditPersonViewController.h */,
-				1BBCC6D71A0D0CDE0035D5B2 /* EditPersonViewController.m */,
-				1BBCC6D31A0CF0050035D5B2 /* AddPersonViewController.h */,
-				1BBCC6D41A0CF0050035D5B2 /* AddPersonViewController.m */,
+				1BBAF6F41A5C234E0064A11A /* ProductsList */,
+				1BBAF6F51A5C23620064A11A /* BabyNames */,
+				1BBAF6F61A5C23710064A11A /* Images */,
 				1BBCC6B41A0CE4400035D5B2 /* Images.xcassets */,
 				1BBCC6B61A0CE4400035D5B2 /* LaunchScreen.xib */,
-				1BBCC6AB1A0CE4400035D5B2 /* DearSanta.xcdatamodeld */,
-				1BBCC6CD1A0CE51C0035D5B2 /* Person.h */,
-				1BBCC6CE1A0CE51C0035D5B2 /* Person.m */,
+				1BBAF6F31A5C23390064A11A /* Model */,
 				1BBCC6A41A0CE4400035D5B2 /* Supporting Files */,
 			);
+			name = BabyDiary;
 			path = DearSanta;
 			sourceTree = "<group>";
 		};
@@ -125,12 +199,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1BBCC6C01A0CE4400035D5B2 /* DearSantaTests */ = {
+		1BBCC6C01A0CE4400035D5B2 /* BabyDiaryTests */ = {
 			isa = PBXGroup;
 			children = (
 				1BBCC6C31A0CE4400035D5B2 /* DearSantaTests.m */,
 				1BBCC6C11A0CE4400035D5B2 /* Supporting Files */,
 			);
+			name = BabyDiaryTests;
 			path = DearSantaTests;
 			sourceTree = "<group>";
 		};
@@ -145,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1BBCC6A01A0CE4400035D5B2 /* DearSanta */ = {
+		1BBCC6A01A0CE4400035D5B2 /* BabyDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BBCC6C71A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "DearSanta" */;
+			buildConfigurationList = 1BBCC6C71A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "BabyDiary" */;
 			buildPhases = (
 				1BBCC69D1A0CE4400035D5B2 /* Sources */,
 				1BBCC69E1A0CE4400035D5B2 /* Frameworks */,
@@ -157,14 +232,14 @@
 			);
 			dependencies = (
 			);
-			name = DearSanta;
+			name = BabyDiary;
 			productName = DearSanta;
-			productReference = 1BBCC6A11A0CE4400035D5B2 /* DearSanta.app */;
+			productReference = 1BBCC6A11A0CE4400035D5B2 /* BabyDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1BBCC6BC1A0CE4400035D5B2 /* DearSantaTests */ = {
+		1BBCC6BC1A0CE4400035D5B2 /* BabyDiaryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BBCC6CA1A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "DearSantaTests" */;
+			buildConfigurationList = 1BBCC6CA1A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "BabyDiaryTests" */;
 			buildPhases = (
 				1BBCC6B91A0CE4400035D5B2 /* Sources */,
 				1BBCC6BA1A0CE4400035D5B2 /* Frameworks */,
@@ -175,9 +250,9 @@
 			dependencies = (
 				1BBCC6BF1A0CE4400035D5B2 /* PBXTargetDependency */,
 			);
-			name = DearSantaTests;
+			name = BabyDiaryTests;
 			productName = DearSantaTests;
-			productReference = 1BBCC6BD1A0CE4400035D5B2 /* DearSantaTests.xctest */;
+			productReference = 1BBCC6BD1A0CE4400035D5B2 /* BabyDiaryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +273,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1BBCC69C1A0CE4400035D5B2 /* Build configuration list for PBXProject "DearSanta" */;
+			buildConfigurationList = 1BBCC69C1A0CE4400035D5B2 /* Build configuration list for PBXProject "BabyDiary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,8 +286,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1BBCC6A01A0CE4400035D5B2 /* DearSanta */,
-				1BBCC6BC1A0CE4400035D5B2 /* DearSantaTests */,
+				1BBCC6A01A0CE4400035D5B2 /* BabyDiary */,
+				1BBCC6BC1A0CE4400035D5B2 /* BabyDiaryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,7 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BBCC6B31A0CE4400035D5B2 /* Main.storyboard in Resources */,
+				1B4DD2581A6D791500C9C1B9 /* BoysNames.plist in Resources */,
+				1B357F831A5B305C005B6114 /* babyDiaryHomePage.png in Resources */,
+				1B4DD2561A6D790F00C9C1B9 /* GirlsNames.plist in Resources */,
 				1BBCC6B81A0CE4400035D5B2 /* LaunchScreen.xib in Resources */,
+				1B4DD25D1A6D88AC00C9C1B9 /* pregnantImage.png in Resources */,
 				1BBCC6B51A0CE4400035D5B2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,10 +325,16 @@
 				1BBCC6D81A0D0CDE0035D5B2 /* EditPersonViewController.m in Sources */,
 				1BBCC6AA1A0CE4400035D5B2 /* AppDelegate.m in Sources */,
 				1BBCC6A71A0CE4400035D5B2 /* main.m in Sources */,
+				1B4DD2601A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m in Sources */,
+				1BBAF6E81A5C16DB0064A11A /* BabyNamesTableViewController.m in Sources */,
+				1BBAF6F21A5C230F0064A11A /* ShortListTableViewController.m in Sources */,
 				1BBCC6D21A0CE6560035D5B2 /* PersonTableTableViewController.m in Sources */,
 				1BBCC6CF1A0CE51C0035D5B2 /* Person.m in Sources */,
+				1B4DD25B1A6D868500C9C1B9 /* BoysNamesViewController.m in Sources */,
 				1BBCC6B01A0CE4400035D5B2 /* ViewController.m in Sources */,
+				1BBAF6EF1A5C22A90064A11A /* BabyName.m in Sources */,
 				1BBCC6AD1A0CE4400035D5B2 /* DearSanta.xcdatamodeld in Sources */,
+				1B4DD2631A6D93DC00C9C1B9 /* FavouritesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BBCC6C41A0CE4400035D5B2 /* DearSantaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +350,7 @@
 /* Begin PBXTargetDependency section */
 		1BBCC6BF1A0CE4400035D5B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1BBCC6A01A0CE4400035D5B2 /* DearSanta */;
+			target = 1BBCC6A01A0CE4400035D5B2 /* BabyDiary */;
 			targetProxy = 1BBCC6BE1A0CE4400035D5B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -375,7 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DearSanta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BabyDiary;
 			};
 			name = Debug;
 		};
@@ -385,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DearSanta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BabyDiary;
 			};
 			name = Release;
 		};
@@ -403,7 +487,7 @@
 				);
 				INFOPLIST_FILE = DearSantaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BabyDiaryTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DearSanta.app/DearSanta";
 			};
 			name = Debug;
@@ -418,7 +502,7 @@
 				);
 				INFOPLIST_FILE = DearSantaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BabyDiaryTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DearSanta.app/DearSanta";
 			};
 			name = Release;
@@ -426,7 +510,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BBCC69C1A0CE4400035D5B2 /* Build configuration list for PBXProject "DearSanta" */ = {
+		1BBCC69C1A0CE4400035D5B2 /* Build configuration list for PBXProject "BabyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BBCC6C51A0CE4400035D5B2 /* Debug */,
@@ -435,21 +519,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1BBCC6C71A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "DearSanta" */ = {
+		1BBCC6C71A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "BabyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BBCC6C81A0CE4400035D5B2 /* Debug */,
 				1BBCC6C91A0CE4400035D5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		1BBCC6CA1A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "DearSantaTests" */ = {
+		1BBCC6CA1A0CE4400035D5B2 /* Build configuration list for PBXNativeTarget "BabyDiaryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BBCC6CB1A0CE4400035D5B2 /* Debug */,
 				1BBCC6CC1A0CE4400035D5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

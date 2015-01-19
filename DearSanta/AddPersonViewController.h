@@ -16,11 +16,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *personNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *presentTextField;
 @property (strong, nonatomic) IBOutlet UITextField *presentPriceTextField;
+@property (strong, nonatomic) IBOutlet UISwitch *broughtProductSwitch;
 
 @property (weak, nonatomic) id<AddPersonViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) Person *currentPerson;
-
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

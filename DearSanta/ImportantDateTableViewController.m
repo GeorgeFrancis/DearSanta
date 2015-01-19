@@ -1,23 +1,21 @@
 //
-//  PersonTableTableViewController.m
-//  DearSanta
+//  ImportantDateTableViewController.m
+//  BabyDiary
 //
-//  Created by George Francis on 07/11/2014.
-//  Copyright (c) 2014 GeorgeFrancis. All rights reserved.
+//  Created by George Francis on 06/01/2015.
+//  Copyright (c) 2015 GeorgeFrancis. All rights reserved.
 //
 
-#import "PersonTableTableViewController.h"
-#import "Person.h"
+#import "ImportantDateTableViewController.h"
+#import "ImportantDate.h"
 #import "EditPersonViewController.h"
 #import "AppDelegate.h"
 
-@interface PersonTableTableViewController ()
-
-@property (nonatomic, strong) NSNumber *totalCost;
+@interface ImportantDateTableViewController ()
 
 @end
 
-@implementation PersonTableTableViewController
+@implementation ImportantDateTableViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -29,17 +27,17 @@
         AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         _managedObjectContext = [delegate managedObjectContext];
     }
-
+    
     return _managedObjectContext;
 }
 
 - (NSNumber*)totalCost
 {
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"Person"];
-//    fetchRequest.propertiesToFetch = @[@"personPresentPrice"];
-//    
-//    NSError *error;
-//    NSArray *persons = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"Person"];
+    //    fetchRequest.propertiesToFetch = @[@"personPresentPrice"];
+    //
+    //    NSError *error;
+    //    NSArray *persons = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     float total = 0;
     for (Person *aPerson in self.fetchedResultsController.fetchedObjects)
@@ -50,7 +48,7 @@
     return @(total);
 }
 
--(void)addPersonViewControllerDidSave{    
+-(void)addPersonViewControllerDidSave{
     NSError *error = nil;
     NSManagedObjectContext *context = self.managedObjectContext;
     if (![context save:&error]) {
@@ -71,7 +69,7 @@
     
     _managedObjectContext = self.managedObjectContext;
     
-  //  [self savePresets];
+    //  [self savePresets];
     
     [super viewDidLoad];
     
@@ -107,12 +105,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return [[self.fetchedResultsController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
     
     return [secInfo numberOfObjects];
@@ -180,14 +178,14 @@
             cell.textLabel.text = [NSString stringWithFormat:@"%@",changePerson.personPresent];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",changePerson.personPresentPrice];
             
-//            if (changePerson.personPresentBrought.boolValue == YES) {
-//                cell.backgroundColor = [UIColor redColor];
-//                
-//            }
-//            
-//            else{
-//                cell.backgroundColor = [UIColor whiteColor];
-//            }
+            //            if (changePerson.personPresentBrought.boolValue == YES) {
+            //                cell.backgroundColor = [UIColor redColor];
+            //
+            //            }
+            //
+            //            else{
+            //                cell.backgroundColor = [UIColor whiteColor];
+            //            }
             cell.backgroundColor = (changePerson.personPresentBrought.boolValue) ? [UIColor redColor] : [UIColor whiteColor];
             
         }
@@ -221,28 +219,10 @@
     }
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    
-    
-    // Configure the cell...
-    
-//    if (indexPath.row < 10) {
-//        cell.textLabel.text = @"this is test cells";
-//    } else {
-//        NSIndexPath *newPath = [NSIndexPath indexPathForRow:indexPath.row - 10 inSection:indexPath.section];
-//        Person *person = [self.fetchedResultsController objectAtIndexPath:newPath];
-//        cell.textLabel.text = person.personPresent;
-//    }
-//    
-//    return cell;
-//}
-   
-        NSString *pound = @"£";
-    
+    NSString *pound = @"£";
     
     Person *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@""%@", pound,person.personPresentPrice];
@@ -260,12 +240,12 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 
 // Override to support editing the table view.
@@ -281,8 +261,24 @@
             NSLog(@"Error! %@",error);
         }
         
-      }
+    }
 }
+
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 
 #pragma mark - Navigation
 

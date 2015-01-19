@@ -13,8 +13,11 @@
 
 @interface PersonTableTableViewController : UITableViewController <AddPersonViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
-@property (nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) Person *currentPerson;
+
+- (IBAction)goToHome:(id)sender;
 
 @end

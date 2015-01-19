@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "PersonTableTableViewController.h"
+
 
 @interface ViewController : UIViewController
 

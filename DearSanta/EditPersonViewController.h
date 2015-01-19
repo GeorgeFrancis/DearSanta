@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *personNameField;
 @property (strong, nonatomic) IBOutlet UITextField *presentNameField;
 @property (strong, nonatomic) IBOutlet UITextField *presentPriceField;
+@property (strong, nonatomic) IBOutlet UISwitch *presentBroughtSwitch;
 
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) IBOutlet UIButton *doneButton;

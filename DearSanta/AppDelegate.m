@@ -17,9 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-    PersonTableTableViewController *ptvc = (PersonTableTableViewController *)[[nav viewControllers]objectAtIndex:0];
-    ptvc.managedObjectContext = self.managedObjectContext;
+//    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+//    PersonTableTableViewController *ptvc = (PersonTableTableViewController *)[[nav viewControllers]objectAtIndex:0];
+//    ptvc.managedObjectContext = self.managedObjectContext;
+    
+
    
     return YES;
 }
