@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "PersonTableTableViewController.h"
 #import "ViewController.h"
+#import "Baby.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,6 +20,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, strong) Baby *baby;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

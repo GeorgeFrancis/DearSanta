@@ -11,12 +11,7 @@
 #import "AddFavouriteNameViewController.h"
 
 
-@interface FavouritesTableViewController : ViewController <NSFetchedResultsControllerDelegate>
+@interface FavouritesTableViewController : FetchResultViewController <NSFetchedResultsControllerDelegate>
 
-
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
-@property (weak, nonatomic) BabyName *currentName;
 
 @end

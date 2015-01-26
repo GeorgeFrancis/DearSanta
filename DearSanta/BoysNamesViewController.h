@@ -7,11 +7,25 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "FetchResultViewController.h"
 
-@interface BoysNamesViewController : ViewController
 
-@property (strong, nonatomic) NSArray *content;
+@interface BoysNamesViewController : FetchResultViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *boysNamesTableView;
+@property (strong, nonatomic) NSString *boysOrGirls;
+@property (strong, nonatomic) NSString *filterString;
+@property (strong, nonatomic) NSString *searchLetter;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *allButtons;
+
+@property (strong, nonatomic) IBOutlet UIButton *boysButton;
+@property (strong, nonatomic) IBOutlet UIButton *girlsButton;
+
+- (IBAction)filterLetterPressed:(id)sender;
+- (IBAction)boysButtonPressed:(id)sender;
+- (IBAction)girlsButtonPressed:(id)sender;
+
+- (IBAction)popToHomePushed:(id)sender;
 
 @end

@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Baby" representedClassName="Baby" syncable="YES">
+        <relationship name="dates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Date" inverseName="inBaby" inverseEntity="Date" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="inBaby" inverseEntity="Item" syncable="YES"/>
+        <relationship name="names" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BabyName" inverseName="inBaby" inverseEntity="BabyName" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="inBaby" inverseEntity="Photo" syncable="YES"/>
+    </entity>
     <entity name="BabyName" representedClassName="BabyName" syncable="YES">
+        <attribute name="isBoy" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameOrigin" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inBaby" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="names" inverseEntity="Baby" syncable="YES"/>
+    </entity>
+    <entity name="Date" representedClassName="Date" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inBaby" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="dates" inverseEntity="Baby" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="isPurchased" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="inBaby" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="items" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="personName" optional="YES" attributeType="String" defaultValueString="name......" syncable="YES"/>
@@ -10,8 +30,17 @@
         <attribute name="personPresentBrought" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="personPresentPrice" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="inBaby" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="photos" inverseEntity="Baby" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="BabyName" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="BabyName" positionX="-317" positionY="-106" width="128" height="103"/>
+        <element name="Person" positionX="376" positionY="-18" width="128" height="105"/>
+        <element name="Baby" positionX="-90" positionY="-133" width="128" height="103"/>
+        <element name="Date" positionX="-45" positionY="68" width="128" height="88"/>
+        <element name="Item" positionX="196" positionY="27" width="128" height="118"/>
+        <element name="Photo" positionX="-344" positionY="27" width="128" height="88"/>
     </elements>
 </model>

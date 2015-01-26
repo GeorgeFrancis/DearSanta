@@ -144,11 +144,6 @@
     
 }
 
-- (IBAction)goToHome:(id)sender {
-    
-    [self dismissModalViewControllerAnimated: YES];
-    
-}
 
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     
@@ -179,15 +174,6 @@
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.textLabel.text = [NSString stringWithFormat:@"%@",changePerson.personPresent];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",changePerson.personPresentPrice];
-            
-//            if (changePerson.personPresentBrought.boolValue == YES) {
-//                cell.backgroundColor = [UIColor redColor];
-//                
-//            }
-//            
-//            else{
-//                cell.backgroundColor = [UIColor whiteColor];
-//            }
             cell.backgroundColor = (changePerson.personPresentBrought.boolValue) ? [UIColor redColor] : [UIColor whiteColor];
             
         }
@@ -248,7 +234,8 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@""%@", pound,person.personPresentPrice];
     cell.textLabel.text = [NSString stringWithFormat:@"%@",person.personPresent];
     
-    cell.backgroundColor = (person.personPresentBrought.boolValue) ? [UIColor redColor] : [UIColor whiteColor];
+    cell.backgroundColor = (person.personPresentBrought.boolValue) ? [UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5]
+    :[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0];
     
     
     return cell;

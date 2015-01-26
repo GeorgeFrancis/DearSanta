@@ -1,9 +1,9 @@
 //
 //  Person.m
-//  DearSanta
+//  BabyDiary
 //
-//  Created by George Francis on 07/11/2014.
-//  Copyright (c) 2014 GeorgeFrancis. All rights reserved.
+//  Created by George Francis on 25/01/2015.
+//  Copyright (c) 2015 GeorgeFrancis. All rights reserved.
 //
 
 #import "Person.h"
@@ -13,7 +13,7 @@
 
 @dynamic personName;
 @dynamic personPresent;
-@dynamic personPresentPrice;
 @dynamic personPresentBrought;
+@dynamic personPresentPrice;
 
 @end

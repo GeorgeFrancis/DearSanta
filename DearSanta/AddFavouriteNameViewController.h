@@ -13,9 +13,10 @@
 
 @interface AddFavouriteNameViewController : ViewController
 
-@property (strong,nonatomic) NSString *currentName;
+@property (strong,nonatomic) BabyName *babyName;
 
 @property (strong, nonatomic) IBOutlet UILabel *babyNameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *saveToFavouritesButton;
 
 - (IBAction)saveData:(id)sender;
 

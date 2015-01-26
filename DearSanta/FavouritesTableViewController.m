@@ -15,101 +15,87 @@
 
 @implementation FavouritesTableViewController
 
-@synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize fetchResultsController = _fetchResultsController;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"inBaby != nil"];
     
+    [self.fetchResultsController.fetchRequest setPredicate:predicate];
+    [NSFetchedResultsController deleteCacheWithName:@"FavouriteBabyNames"];
+    [self.fetchResultsController performFetch:nil];
     
-    _managedObjectContext = self.managedObjectContext;
+    [self.tableView reloadData];
     
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)addPersonViewControllerDidSave{
-    NSError *error = nil;
-    NSManagedObjectContext *context = self.managedObjectContext;
-    if (![context save:&error]) {
-        NSLog(@"Error! %@", error);
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-
-
-- (NSManagedObjectContext *)managedObjectContext{
     
-    if (_managedObjectContext == nil)
+}
+
+- (NSFetchedResultsController*)fetchResultsController
+{
+    if (_fetchResultsController == nil)
     {
-        AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        _managedObjectContext = [delegate managedObjectContext];
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"BabyName"];
+        
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                                  initWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+        fetchRequest.sortDescriptors = @[sort];
+        
+        
+        _fetchResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                                                     managedObjectContext:self.appDelegate.managedObjectContext
+                                                                       sectionNameKeyPath:nil
+                                                                                cacheName:@"FavouriteBabyNames"];
+        _fetchResultsController.delegate = self;
     }
     
-    return _managedObjectContext;
+    return _fetchResultsController;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+- (void)configureTableViewCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+    BabyName *babyName = [self.fetchResultsController objectAtIndexPath:indexPath];
     
-    return [[self.fetchedResultsController sections]count];
+    cell.textLabel.text = babyName.name;
+    cell.detailTextLabel.text = babyName.nameOrigin;
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell.contentView setBackgroundColor:[UIColor clearColor]];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
-    
-    return [secInfo numberOfObjects];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.appDelegate managedObjectContext];
+        BabyName *babyToDelete = [self.fetchResultsController objectAtIndexPath:indexPath];
+        babyToDelete.inBaby = nil;
+
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Error! %@",error);
+        }
+        
+    }
 }
+
+
 
 
 #pragma mark - Fetched Results Controller
 
 
--(NSFetchedResultsController *)fetchedResultsController{
-    
-    if (_fetchedResultsController !=nil) {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BabyName" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
-                                                                   ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
-    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"name" cacheName:nil];
-    
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
-    
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    
-    BabyName *baby = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",baby];
-    
-    
-    return cell;
-}
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    return [[[self.fetchedResultsController sections]objectAtIndex:section]name];
-}
+
+
 
 
 

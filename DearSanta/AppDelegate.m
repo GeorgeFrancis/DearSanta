@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BabyName.h"
 
 @interface AppDelegate ()
 
@@ -17,12 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-//    PersonTableTableViewController *ptvc = (PersonTableTableViewController *)[[nav viewControllers]objectAtIndex:0];
-//    ptvc.managedObjectContext = self.managedObjectContext;
+    [self loadInBabyNames];
     
-
-   
+    [[UINavigationBar appearance]setBackgroundColor:[UIColor colorWithRed:1 green:0.553 blue:0.118 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0]];
+    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     return YES;
 }
 
@@ -48,6 +54,68 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark - App Setup
+
+- (void)loadInBabyNames
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"BabyName"];
+    
+    NSInteger existingNamesCount = [self.managedObjectContext countForFetchRequest:fetchRequest error:nil];
+    
+    if (existingNamesCount == 0)
+    {
+        NSURL *boyPlistPath = [[NSBundle mainBundle]URLForResource:@"boysnames" withExtension:@"plist"];
+        NSURL *girlPlistPath = [[NSBundle mainBundle]URLForResource:@"girlsnames" withExtension:@"plist"];
+        
+        [self addNameToCoreDataFromArray:[NSArray arrayWithContentsOfURL:boyPlistPath] isBoy:YES];
+        [self addNameToCoreDataFromArray:[NSArray arrayWithContentsOfURL:girlPlistPath] isBoy:NO];
+        
+        [self.managedObjectContext save:nil];
+        
+        NSLog(@"Saved names");
+    }
+    else
+    {
+        NSLog(@"Already have %ld names", (long)existingNamesCount);
+    }
+}
+
+- (void)addNameToCoreDataFromArray:(NSArray*)array isBoy:(BOOL)isBoy
+{
+    for (NSDictionary *nameDict in array)
+    {
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"BabyName"
+                                                             inManagedObjectContext:self.managedObjectContext];
+        
+        BabyName *nameObject = (BabyName*)[[NSManagedObject alloc]initWithEntity:entityDescription
+                                                  insertIntoManagedObjectContext:self.managedObjectContext];
+        
+        nameObject.name = nameDict[@"Name"];
+        nameObject.nameOrigin = nameDict[@"NameOrigin"];
+        nameObject.isBoy = [NSNumber numberWithBool:isBoy];
+    }
+}
+
+- (Baby*)baby
+{
+    if (_baby == nil)
+    {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"Baby"];
+        
+        _baby = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil]lastObject];
+        
+        if (_baby == nil) {
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Baby"
+                                                                 inManagedObjectContext:self.managedObjectContext];
+
+            _baby = (Baby*)[[NSManagedObject alloc]initWithEntity:entityDescription
+                                                      insertIntoManagedObjectContext:self.managedObjectContext];
+        }
+    }
+    
+    return _baby;
 }
 
 #pragma mark - Core Data stack
@@ -80,7 +148,7 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"DearSanta.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"model.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -129,5 +197,6 @@
         }
     }
 }
+
 
 @end

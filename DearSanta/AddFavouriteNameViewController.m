@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.babyNameLabel setText:[NSString stringWithFormat:@"%@",self.currentName]];
+
+    
+    [self.babyNameLabel setText:[NSString stringWithFormat:@"%@",self.babyName.name]];
     
     // Do any additional setup after loading the view.
 }
@@ -26,6 +28,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self updateTitle];
+}
+
+-(void) updateTitle
+{
+    NSString *title;
+    
+    if (self.babyName.inBaby == nil)
+    {
+        title = @"Add to Favourites";
+    }
+    else
+    {
+        title = @"Remove from Favourites";
+        
+    }
+    
+    [self.saveToFavouritesButton setTitle:title forState:UIControlStateNormal];
+}
+
 
 /*
 #pragma mark - Navigation
@@ -37,29 +64,23 @@
 }
 */
 
-- (IBAction)saveData:(id)sender {
-    
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    
-//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-//    NSManagedObject *newName;
-//    
-//    newName = [NSEntityDescription
-//                  insertNewObjectForEntityForName:@"BabyName"
-//                  inManagedObjectContext:context];
-//    [newName setValue: self.currentName forKey:@"name"];
-//    
-//    NSError *error;
-//    [context save:&error];
-//    NSLog(@"%@",error);
-//    
+- (IBAction)saveData:(id)sender
+{
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
+//    [self.babyName.managedObjectContext save:nil];
     
-        BabyName *newName = (BabyName *) [NSEntityDescription insertNewObjectForEntityForName:@"BabyName"
-                                                                     inManagedObjectContext:[delegate managedObjectContext]];
-        [newName setValue: self.currentName forKey:@"name"];
+    if (self.babyName.inBaby)
+    {
+        self.babyName.inBaby = nil;
+    }
+    else
+    {
+        self.babyName.inBaby = delegate.baby;
+    }
+    
+    [self updateTitle];
 
     [delegate saveContext];
     
