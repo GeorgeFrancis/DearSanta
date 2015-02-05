@@ -40,6 +40,11 @@
     [[self.babyNamesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
     [[self.babyNamesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
     
+    [[self.forumButton layer] setMasksToBounds:YES];
+    [[self.forumButton layer] setBorderWidth:2.0f];
+    [[self.forumButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+    [[self.forumButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+    
     [[self.infoButton layer] setBorderWidth:2.0f];
     [[self.infoButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
     [[self.infoButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];

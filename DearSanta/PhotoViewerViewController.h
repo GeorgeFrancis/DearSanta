@@ -9,18 +9,17 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "PhotoDiaryViewController.h"
+#import "Photo.h"
+#import "AppDelegate.h"
+#import "PhotoCollectionViewController.h"
 
 @class PhotoDiaryViewController;
 
 @interface PhotoViewerViewController : ViewController <UIAlertViewDelegate>
 
-//@property (nonatomic,strong) PhotoDiaryViewController *photoDiaryViewController;
-
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 
-@property (strong,nonatomic) UIImage *thisImage;
-@property (strong,nonatomic) NSNumber *imageToDeleteRef;
-@property (strong,nonatomic) NSNumber *rowToDelete;
+@property (strong,nonatomic) Photo *editPhoto;
 
 - (IBAction)deletePhotoButtonPressed:(id)sender;
 - (IBAction)goHomePressed:(id)sender;

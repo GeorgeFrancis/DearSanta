@@ -8,6 +8,7 @@
 
 #import "PhotoViewerViewController.h"
 #import "PhotoDiaryViewController.h"
+#import "PhotoCollectionViewController.h"
 
 
 @interface PhotoViewerViewController ()
@@ -18,18 +19,16 @@
 
 @implementation PhotoViewerViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     
-    
-
-   // photoDiaryViewController = [[PhotoDiaryViewController alloc] init];
-    
-    self.rowToDelete = [NSNumber numberWithInt:-1];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.rowToDelete forKey:@"deleteNumberStored"];
-    
-    self.photoImageView.image = self.thisImage;
     [super viewDidLoad];
+    
+    PhotoCollectionViewController *photoCollectionViewController = [[PhotoCollectionViewController alloc] initWithNibName:nil bundle:nil];
+    
+    UIImage *image = [UIImage imageWithData:self.editPhoto.photoData];
+    self.photoImageView.image = image;
+    
     
     // Do any additional setup after loading the view.
 }
@@ -80,14 +79,10 @@
     }
     else if (buttonIndex == 1)
     {
-        self.rowToDelete = self.imageToDeleteRef;
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:self.rowToDelete forKey:@"deleteNumberStored"];
         
         [alertView dismissWithClickedButtonIndex:1 animated:YES];
         NSLog(@"delete pressed");
-        
+    
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

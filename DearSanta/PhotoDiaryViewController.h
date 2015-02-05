@@ -9,27 +9,19 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "PhotoViewerViewController.h"
+#import "Photo.h"
+#import "AppDelegate.h"
+#import "FetchResultViewController.h"
 
 @class PhotoViewerViewController;
 
-@interface PhotoDiaryViewController : ViewController  <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UIGestureRecognizerDelegate,UICollectionViewDataSource>
-
-@property (strong,nonatomic) NSNumber *deleteObject;
+@interface PhotoDiaryViewController : ViewController <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UIGestureRecognizerDelegate,UICollectionViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *photoDiaryCollectionView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *timeLapseButton;
 
 
-@property  (strong, nonatomic) NSNumber *numberToDelete;
-
-- (IBAction)takePhotoButtonPressed:(id)sender;
-
-- (IBAction)pickPhotoButtonPressed:(id)sender;
 - (IBAction)goHomePressed:(id)sender;
 - (IBAction)viewTimeLapsePressed:(id)sender;
-
-
--(void)deleteRow:(NSNumber*)deleteValue;
 
 
 @end

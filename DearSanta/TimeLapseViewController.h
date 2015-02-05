@@ -10,7 +10,7 @@
 
 @interface TimeLapseViewController : ViewController
 
-@property (nonatomic, strong) NSArray *photoArray;
+@property (nonatomic, strong) NSArray *allPhotoArray;
 @property (strong, nonatomic) IBOutlet UIImageView *timeLapseImageView;
 
 - (IBAction)playTimeLapsePressed:(id)sender;

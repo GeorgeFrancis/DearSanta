@@ -96,5 +96,6 @@
 - (IBAction)saveItemPressed:(id)sender {
     
     [self createNewItem];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -21,80 +21,90 @@
 
 @implementation PhotoDiaryViewController
 
+//@synthesize fetchResultsController = _fetchResultsController;
+
 - (void)viewDidLoad
 {
+        [super viewDidLoad];
+    
+ //   [NSFetchedResultsController deleteCacheWithName:@"photos"];
+    
+ //   [self.fetchResultsController performFetch:nil];
+    
+//    [self.tableView reloadData];
+
     
     
     
     
-    self.assets = [[NSMutableArray alloc]init];
-    
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveImages"];
-    NSMutableArray *tempImages = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    if (tempImages > 0) {
-        self.assets = tempImages;
-    }
     
     
     
     
-    self.numberToDelete =  [NSNumber numberWithInt:-1];
-    
-    NSLog(@"View Did load called");
     
     
-    [super viewDidLoad];
+    
+    
+//    self.assets = [[NSMutableArray alloc]init];
+//    
+//    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"saveImages"];
+//    NSMutableArray *tempImages = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+//    
+//    
+//    
+//    
+//    
+//    
+//    if (tempImages > 0) {
+//        self.assets = tempImages;
+//    }
 }
+
+
+//- (NSFetchedResultsController*)fetchResultsController
+//
+//{
+//    
+//    if (_fetchResultsController == nil)
+//        
+//    {
+//        
+//        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+//        
+//        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"photoData" ascending:YES];
+//        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+//        fetchRequest.sortDescriptors = @[sort];
+//        
+//        
+//        _fetchResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.appDelegate.managedObjectContext sectionNameKeyPath:nil
+//                                                                                cacheName:@"photos"];
+//        
+//        _fetchResultsController.delegate = self;
+//    }
+//    
+//    return _fetchResultsController;
+//    
+//}
+
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.numberToDelete = [defaults objectForKey:@"deleteNumberStored"];
-    NSLog(@"View will appear called");
-    
-    if (self.numberToDelete != [NSNumber numberWithInt:-1]) {
-        
-    NSLog(@"Delte Row method called");
-    int j = [self.numberToDelete intValue];
-    NSLog(@"Value to delete is %d",j);
-    
-  //  [self.assets removeObjectAtIndex:j];
-        
-        
-    [self.photoDiaryCollectionView reloadData];
-        
-    }
-    
 }
 
-- (void)deleteRow:(NSNumber*)deleteValue
-{
-    NSLog(@"Delte Row method called");
-    int j = [self.numberToDelete intValue];
-    NSLog(@"Value to delete is %d",j);
-    
-    [self.assets removeObjectAtIndex:j];
-    [self.photoDiaryCollectionView reloadData];
-    
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-
-
-
-    
-    NSLog(@"View will appear called");
-    
-       if (self.assets.count < 2) {
-        self.timeLapseButton.enabled = NO;
-    }
-    else
-        self.timeLapseButton.enabled = YES;
-}
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//
+//    NSLog(@"View will appear called");
+//    
+//       if (self.assets.count < 2) {
+//        self.timeLapseButton.enabled = NO;
+//    }
+//    else
+//        self.timeLapseButton.enabled = YES;
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -153,58 +163,69 @@
     // Do something with the image
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    //take image from info
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    [self.assets addObject:image];
-    
-    NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:self.assets];
-    [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:@"saveImages"];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [self.photoDiaryCollectionView reloadData];
-    
-    [picker dismissViewControllerAnimated:YES completion:Nil];
-    
-}
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//    
+//    //take image from info
+//    
+//    
+//      // [newManagedObject setValue:imageData forKey:@"image"];
+//    
+//    
+//    self.selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    
+//    
+//    
+//    [self.photoDiaryCollectionView reloadData];
+//    
+//    [picker dismissViewControllerAnimated:YES completion:Nil];
+//    
+//    [self saveImage];
+//    
+//}
+//
+//-(void)saveImage
+//{
+//    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//    _managedObjectContext = [delegate managedObjectContext];
+//    
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo"
+//                                                         inManagedObjectContext:self.managedObjectContext];
+//    
+//    Photo *photos  = (Photo*)[[NSManagedObject alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+//    
+//    
+//    NSData *imageData = UIImagePNGRepresentation(self.selectedImage);
+//
+//    photos.photoData = imageData;
+//    
+//    //    [photos setPhotoData:imageData];
+//    
+//    [delegate saveContext];
+//
+//    
+//}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"ShowImages"]) {
-        
-        UICollectionViewCell *cell = (UICollectionViewCell*)sender;
-        NSIndexPath *indexPath = [self.photoDiaryCollectionView indexPathForCell:cell];
-        UIImage *nextImage = [self.assets objectAtIndex:indexPath.row];
-        NSNumber *selRow = [[NSNumber alloc] initWithInteger:indexPath.row];
-        
-        PhotoViewerViewController  *photo = [segue destinationViewController];
-        
-        photo.thisImage = nextImage;
-        photo.imageToDeleteRef = selRow;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"TimeLapse"]) {
-    
-        NSArray *lapseArray = self.assets;
-        TimeLapseViewController  *photoTimeLapse = [segue destinationViewController];
-        photoTimeLapse.photoArray = lapseArray;
-    }
-}
-
--(void)clearDeleteValue
-{
-    NSNumber *temp =  [NSNumber numberWithInt:-1];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:temp forKey:@"deleteNumberStored"];
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"ShowImages"]) {
+//        
+//        UICollectionViewCell *cell = (UICollectionViewCell*)sender;
+//        NSIndexPath *indexPath = [self.photoDiaryCollectionView indexPathForCell:cell];
+//        UIImage *nextImage = [self.assets objectAtIndex:indexPath.row];
+//        PhotoViewerViewController  *photo = [segue destinationViewController];
+//     //   photo.thisImage = nextImage;
+//           }
+//    
+//    if ([[segue identifier] isEqualToString:@"TimeLapse"]) {
+//    
+//        NSArray *lapseArray = self.assets;
+//        TimeLapseViewController  *photoTimeLapse = [segue destinationViewController];
+//   //     photoTimeLapse.photoArray = lapseArray;
+//    }
+//}
 
 - (IBAction)takePhotoButtonPressed:(id)sender
 {
-  //  [self clearDeleteValue];
-    
     if (([UIImagePickerController isSourceTypeAvailable:
           UIImagePickerControllerSourceTypeCamera] == NO))
         return;
@@ -231,6 +252,36 @@
     mediaUI.delegate = self;
     [self presentViewController:mediaUI animated:YES completion:nil];
 }
+
+//-(void)savePhoto
+//{
+//
+//AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//_managedObjectContext = [delegate managedObjectContext];
+//
+//NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Photo"
+//                                                     inManagedObjectContext:self.managedObjectContext];
+//
+//    Photo *photos  = (Photo*)[[NSManagedObject alloc]initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+//    
+//    
+////Date *dates = (Date*)[[NSManagedObject alloc]initWithEntity:entityDescription
+// //                            insertIntoManagedObjectContext:self.managedObjectContext];
+//
+////NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+////dateFormat.timeZone = [NSTimeZone defaultTimeZone];
+////dateFormat.timeStyle = NSDateFormatterShortStyle;
+////dateFormat.dateStyle = NSDateFormatterShortStyle;
+////[dateFormat setDateFormat:@"yyyy-MM-dd"];
+////NSDate *newDate = self.datePicker.date;
+////
+////dates.date = newDate;
+//
+//// [dates setDate:newDate];
+//
+//[delegate saveContext];
+//
+//}
 
 - (IBAction)goHomePressed:(id)sender
 {

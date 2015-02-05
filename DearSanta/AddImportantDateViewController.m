@@ -31,7 +31,6 @@
 
 -(void)createNewDate
 {
-    
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     _managedObjectContext = [delegate managedObjectContext];
     
@@ -50,16 +49,21 @@
     NSDate *newDate = self.datePicker.date;
     
     dates.date = newDate;
-    
-    // [dates setDate:newDate];
+    dates.name = self.dateNameTextField.text;
     
     [delegate saveContext];
-    
-    
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    [self.dateNameTextField resignFirstResponder];
+}
+
 - (IBAction)addDateButtonPressed:(id)sender
 {
     [self createNewDate];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

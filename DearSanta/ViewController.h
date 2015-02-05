@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
-#import "PersonTableTableViewController.h"
+//#import "PersonTableTableViewController.h"
 
 
 @interface ViewController : UIViewController
@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *essentialItemsButton;
 @property (strong, nonatomic) IBOutlet UIButton *babyNamesButton;
 @property (strong, nonatomic) IBOutlet UIButton *specialDatesButton;
+@property (strong, nonatomic) IBOutlet UIButton *forumButton;
+
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 

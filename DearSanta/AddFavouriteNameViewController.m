@@ -14,14 +14,16 @@
 
 @implementation AddFavouriteNameViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-
+- (void)viewDidLoad
+{
+    [[self.saveToFavouritesButton layer] setMasksToBounds:YES];
+    [[self.saveToFavouritesButton layer] setBorderWidth:2.0f];
+    [[self.saveToFavouritesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+    [[self.saveToFavouritesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
     
     [self.babyNameLabel setText:[NSString stringWithFormat:@"%@",self.babyName.name]];
     
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {

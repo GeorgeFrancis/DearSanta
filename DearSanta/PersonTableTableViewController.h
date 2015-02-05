@@ -18,6 +18,6 @@
 
 @property (weak, nonatomic) Person *currentPerson;
 
-- (IBAction)goToHome:(id)sender;
+
 
 @end

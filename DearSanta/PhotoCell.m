@@ -26,7 +26,7 @@
 -(void)loadCell:(UIImage *)Image
 {
     _image = Image;
-    self.photoImageView.image = _image;
+    self.photoImageView.image = self.image;
 }
 
 @end

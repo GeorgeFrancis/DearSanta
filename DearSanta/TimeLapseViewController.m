@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad
 {
-    UIImage *img = [self.photoArray objectAtIndex:1];
+    UIImage *img = [self.allPhotoArray objectAtIndex:0];
     self.timeLapseImageView.image = img;
     
 //    NSNumber *temp =  [NSNumber numberWithInt:-1];
@@ -33,8 +33,8 @@
 
 -(void)playAnimation
 {
-    self.timeLapseImageView.animationImages=self.photoArray;
-    self.timeLapseImageView.animationDuration= self.photoArray.count/2;
+    self.timeLapseImageView.animationImages=self.allPhotoArray;
+    self.timeLapseImageView.animationDuration= self.allPhotoArray.count/2;
     self.timeLapseImageView.animationRepeatCount=0;
     [self.timeLapseImageView startAnimating];
 }

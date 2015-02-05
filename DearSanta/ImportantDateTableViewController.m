@@ -25,13 +25,14 @@
     
     [self.fetchResultsController performFetch:nil];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self.tableView reloadData];
 }
 
 - (NSFetchedResultsController*)fetchResultsController
 
 {
-    
     if (_fetchResultsController == nil)
         
     {
@@ -56,33 +57,31 @@
 - (void)configureTableViewCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 
 {
-    
     Date *date = [self.fetchResultsController objectAtIndexPath:indexPath];
-    
-    
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    
     dateFormatter.timeZone = [NSTimeZone defaultTimeZone];
-    
     dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    
-    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    
+    dateFormatter.dateStyle = NSDateFormatterLongStyle;
     NSString *dateTimeString = [dateFormatter stringFromDate:date.date];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@",dateTimeString];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",date.name];
     NSDate *today = [NSDate date];
     
-    if (date.date == today) {
-        
-         [self scheduleLocalNotificationWithDate:today];
-    }
+    NSDate *dateToNotify = date.date;
     
+    
+  //  NSDate *now = [NSDate date];
+    int daysToAdd = -1;
+    NSDate *newDate1 = [dateToNotify dateByAddingTimeInterval:60*60*24*daysToAdd];
 
-    
-   
-    
+    [self scheduleLocalNotificationWithDate:newDate1:dateTimeString];
+    if (today == newDate1) {
+        
+        NSLog(@"alarm today");
+        
+        
+    }
     
     [cell setBackgroundColor:[UIColor clearColor]];
     
@@ -97,36 +96,30 @@
         Date *dateToDelete = [self.fetchResultsController objectAtIndexPath:indexPath];
         [context deleteObject:dateToDelete];
         
-        
                NSError *error = nil;
         if (![context save:&error]) {
             NSLog(@"Error! %@",error);
         }
-        
     }
 }
 
--(void)scheduleLocalNotificationWithDate:(NSDate *)fireDate{
-    
+-(void)scheduleLocalNotificationWithDate:(NSDate *)fireDate :(NSString*)dateString
+{
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     notification.fireDate = fireDate;
     
-    notification.alertBody = @"Your Notification";
+    notification.alertBody = [NSString stringWithFormat:@"%@",dateString];
     notification.alertAction = @"Doctors tomorrow";
   //  notification.soundName = @"newAlarm.mp3";
     
     [[UIApplication sharedApplication]scheduleLocalNotification:notification];
 }
 
--(void)checkForNotification {
-    
-    
 
+-(void)checkForNotification
+{
+    
 }
-
-
-
-
 
 - (void)didReceiveMemoryWarning
 {

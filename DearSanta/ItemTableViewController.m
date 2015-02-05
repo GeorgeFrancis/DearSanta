@@ -27,6 +27,8 @@
     
     [self.fetchResultsController performFetch:nil];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self.tableView reloadData];
 
 }

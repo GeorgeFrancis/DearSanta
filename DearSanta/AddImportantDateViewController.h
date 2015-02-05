@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UITextField *dateNameTextField;
 
 
 - (IBAction)addDateButtonPressed:(id)sender;

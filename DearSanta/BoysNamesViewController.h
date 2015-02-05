@@ -26,6 +26,6 @@
 - (IBAction)boysButtonPressed:(id)sender;
 - (IBAction)girlsButtonPressed:(id)sender;
 
-- (IBAction)popToHomePushed:(id)sender;
+
 
 @end

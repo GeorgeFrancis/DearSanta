@@ -11,6 +11,6 @@
 #import "AppDelegate.h"
 
 
-@interface ImportantDateTableViewController : FetchResultViewController <NSFetchedResultsControllerDelegate>
+@interface ImportantDateTableViewController : FetchResultViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDataSource>
 
 @end
