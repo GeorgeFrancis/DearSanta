@@ -11,13 +11,20 @@
 #import "AppDelegate.h"
 #import "Item.h"
 
-@interface EditItemViewController : ViewController
+@interface EditItemViewController : ViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
 
 @property (strong,nonatomic) Item *editItems;
+@property (strong, nonatomic) NSArray *pickerData;
 
 @property (strong, nonatomic) IBOutlet UITextField *itemNameTextField;
 
+@property (strong, nonatomic) IBOutlet UIPickerView *quantityPicker;
+@property (strong, nonatomic) IBOutlet UISwitch *purchaseSwitch;
+
 - (IBAction)editButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
+
+- (IBAction)purchaseSwitchPressed:(id)sender;
 
 @end

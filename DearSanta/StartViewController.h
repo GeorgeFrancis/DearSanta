@@ -1,20 +1,17 @@
 //
-//  ViewController.h
-//  DearSanta
+//  StartViewController.h
+//  BabyDiary
 //
-//  Created by George Francis on 07/11/2014.
-//  Copyright (c) 2014 GeorgeFrancis. All rights reserved.
+//  Created by George Francis on 06/02/2015.
+//  Copyright (c) 2015 GeorgeFrancis. All rights reserved.
 //
 
+#import "FetchResultViewController.h"
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
 
-
-
-@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate>
-
-@property (nonatomic, strong) NSFetchedResultsController *fetchResultsController;
+@interface StartViewController : FetchResultViewController
 
 @property (nonatomic) BOOL showInfo;
 
@@ -32,5 +29,6 @@
 
 - (IBAction)infoButtonPressed:(id)sender;
 
-@end
 
+
+@end

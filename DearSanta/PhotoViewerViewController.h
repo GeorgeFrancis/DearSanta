@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "PhotoCell.h"
-#import "PhotoDiaryViewController.h"
 #import "Photo.h"
 #import "AppDelegate.h"
 #import "PhotoCollectionViewController.h"
@@ -21,9 +20,7 @@
 
 @property (strong,nonatomic) Photo *editPhoto;
 
-- (IBAction)deletePhotoButtonPressed:(id)sender;
-- (IBAction)goHomePressed:(id)sender;
-
+- (IBAction)homeButtonPressed:(id)sender;
 
 
 @end

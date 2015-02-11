@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "Baby.h"
 #import <NotificationCenter/NotificationCenter.h>
+#import "ViewController.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

@@ -7,10 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "FetchResultViewController.h"
+#import "AppDelegate.h"
 
-@interface TimeLapseViewController : ViewController
+@interface TimeLapseViewController : FetchResultViewController
 
-@property (nonatomic, strong) NSArray *allPhotoArray;
+//@property (nonatomic, strong) NSFetchedResultsController *fetchResultController;
+
+//@property (nonatomic, strong) NSArray *allPhotoArray;
+
 @property (strong, nonatomic) IBOutlet UIImageView *timeLapseImageView;
 
 - (IBAction)playTimeLapsePressed:(id)sender;

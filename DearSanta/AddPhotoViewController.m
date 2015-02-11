@@ -19,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"charlieBackground.JPG"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+//    UIGraphicsBeginImageContext(self.view.frame.size);
+ //   [[UIImage imageNamed:@"charlieBackground.JPG"] drawInRect:self.view.bounds];
+ //   UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+ //   UIGraphicsEndImageContext();
+ //   self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     
     
   //  [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"charlieBackground.JPG"]]];

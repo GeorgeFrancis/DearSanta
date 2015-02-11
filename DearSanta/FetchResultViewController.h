@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface FetchResultViewController : ViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface FetchResultViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) AppDelegate *appDelegate;

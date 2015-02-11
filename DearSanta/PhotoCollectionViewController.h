@@ -16,8 +16,7 @@
 @interface PhotoCollectionViewController : FetchResultViewController <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,UIGestureRecognizerDelegate,UICollectionViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *photoDiaryCollectionView;
-
-@property (strong, nonatomic) NSMutableArray *photoArray;
+- (IBAction)homeButtonPressed:(id)sender;
 
 @end
 

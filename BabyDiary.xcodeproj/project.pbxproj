@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B154D221A72E09F00F681D9 /* babyNamesImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B154D211A72E09F00F681D9 /* babyNamesImage.png */; };
-		1B35B8B61A6E8C5900A19602 /* PhotoDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B35B8B51A6E8C5900A19602 /* PhotoDiaryViewController.m */; };
 		1B35B8BB1A6E8E2D00A19602 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B35B8B81A6E8DDE00A19602 /* AssetsLibrary.framework */; };
 		1B35B8BE1A6E914C00A19602 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B35B8BD1A6E914C00A19602 /* PhotoCell.m */; };
 		1B35B8C11A6F09F800A19602 /* PhotoViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B35B8C01A6F09F800A19602 /* PhotoViewerViewController.m */; };
@@ -32,7 +31,6 @@
 		1B4DD2601A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4DD25F1A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m */; };
 		1B4DD2631A6D93DC00C9C1B9 /* FavouritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */; };
 		1B57EC0A1A825AC000A9E313 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B57EC091A825AC000A9E313 /* NotificationCenter.framework */; };
-		1B6270891A6FA92100EC3DF1 /* TimeLapseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6270881A6FA92100EC3DF1 /* TimeLapseViewController.m */; };
 		1B6CA42F1A70457600018381 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6CA42E1A70457600018381 /* QuartzCore.framework */; };
 		1B6CA4311A70498800018381 /* homePageImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6CA4301A70498800018381 /* homePageImage.png */; };
 		1B70DF1F1A7543ED0039FB1B /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B70DF1E1A7543ED0039FB1B /* Baby.m */; };
@@ -68,8 +66,9 @@
 		1B82CCB81A7D5CC600D64E06 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82CCB71A7D5CC600D64E06 /* ForumViewController.m */; };
 		1B82CCBB1A7FA81E00D64E06 /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82CCBA1A7FA81E00D64E06 /* AddPhotoViewController.m */; };
 		1B82CCBE1A7FAC8800D64E06 /* PhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82CCBD1A7FAC8800D64E06 /* PhotoCollectionViewController.m */; };
-		1BBAF6E81A5C16DB0064A11A /* BabyNamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */; };
-		1BBAF6F21A5C230F0064A11A /* ShortListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */; };
+		1B9D96C01A86B5E9003189F9 /* favourtiesStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9D96BF1A86B5E9003189F9 /* favourtiesStar.png */; };
+		1B9D96C21A86B8A6003189F9 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9D96C11A86B8A6003189F9 /* star.png */; };
+		1B9D96C51A8AA128003189F9 /* SequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D96C41A8AA128003189F9 /* SequenceViewController.m */; };
 		1BBCC6A71A0CE4400035D5B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6A61A0CE4400035D5B2 /* main.m */; };
 		1BBCC6AA1A0CE4400035D5B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6A91A0CE4400035D5B2 /* AppDelegate.m */; };
 		1BBCC6AD1A0CE4400035D5B2 /* DearSanta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCC6AB1A0CE4400035D5B2 /* DearSanta.xcdatamodeld */; };
@@ -83,7 +82,6 @@
 		1BD5984F1A7FE63600C9B0F7 /* scarlett3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD5984E1A7FE63600C9B0F7 /* scarlett3.png */; };
 		1BD598511A7FE8A200C9B0F7 /* scarlettbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD598501A7FE8A200C9B0F7 /* scarlettbackground.png */; };
 		1BD598531A7FEEEC00C9B0F7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD598521A7FEEEC00C9B0F7 /* arrow.png */; };
-		1BD598561A7FF40000C9B0F7 /* charlieBackground.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1BD598551A7FF40000C9B0F7 /* charlieBackground.JPG */; };
 		1BD598581A80BB7700C9B0F7 /* calendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BD598571A80BB7700C9B0F7 /* calendar.jpg */; };
 /* End PBXBuildFile section */
 
@@ -99,8 +97,6 @@
 
 /* Begin PBXFileReference section */
 		1B154D211A72E09F00F681D9 /* babyNamesImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = babyNamesImage.png; sourceTree = "<group>"; };
-		1B35B8B41A6E8C5900A19602 /* PhotoDiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDiaryViewController.h; sourceTree = "<group>"; };
-		1B35B8B51A6E8C5900A19602 /* PhotoDiaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDiaryViewController.m; sourceTree = "<group>"; };
 		1B35B8B81A6E8DDE00A19602 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		1B35B8BC1A6E914C00A19602 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		1B35B8BD1A6E914C00A19602 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
@@ -134,8 +130,6 @@
 		1B4DD2611A6D93DC00C9C1B9 /* FavouritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesTableViewController.h; sourceTree = "<group>"; };
 		1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesTableViewController.m; sourceTree = "<group>"; };
 		1B57EC091A825AC000A9E313 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		1B6270871A6FA92100EC3DF1 /* TimeLapseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLapseViewController.h; sourceTree = "<group>"; };
-		1B6270881A6FA92100EC3DF1 /* TimeLapseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLapseViewController.m; sourceTree = "<group>"; };
 		1B6CA42E1A70457600018381 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B6CA4301A70498800018381 /* homePageImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homePageImage.png; sourceTree = "<group>"; };
 		1B70DF1D1A7543ED0039FB1B /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
@@ -184,10 +178,10 @@
 		1B82CCBA1A7FA81E00D64E06 /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
 		1B82CCBC1A7FAC8800D64E06 /* PhotoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewController.h; sourceTree = "<group>"; };
 		1B82CCBD1A7FAC8800D64E06 /* PhotoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewController.m; sourceTree = "<group>"; };
-		1BBAF6E61A5C16DB0064A11A /* BabyNamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyNamesTableViewController.h; sourceTree = "<group>"; };
-		1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyNamesTableViewController.m; sourceTree = "<group>"; };
-		1BBAF6F01A5C230F0064A11A /* ShortListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortListTableViewController.h; sourceTree = "<group>"; };
-		1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortListTableViewController.m; sourceTree = "<group>"; };
+		1B9D96BF1A86B5E9003189F9 /* favourtiesStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourtiesStar.png; sourceTree = "<group>"; };
+		1B9D96C11A86B8A6003189F9 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		1B9D96C31A8AA128003189F9 /* SequenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceViewController.h; sourceTree = "<group>"; };
+		1B9D96C41A8AA128003189F9 /* SequenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceViewController.m; sourceTree = "<group>"; };
 		1BBCC6A11A0CE4400035D5B2 /* BabyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBCC6A51A0CE4400035D5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBCC6A61A0CE4400035D5B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -209,7 +203,6 @@
 		1BD5984E1A7FE63600C9B0F7 /* scarlett3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scarlett3.png; sourceTree = "<group>"; };
 		1BD598501A7FE8A200C9B0F7 /* scarlettbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scarlettbackground.png; sourceTree = "<group>"; };
 		1BD598521A7FEEEC00C9B0F7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		1BD598551A7FF40000C9B0F7 /* charlieBackground.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charlieBackground.JPG; sourceTree = "<group>"; };
 		1BD598571A80BB7700C9B0F7 /* calendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = calendar.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,12 +256,10 @@
 				1B82CCBD1A7FAC8800D64E06 /* PhotoCollectionViewController.m */,
 				1B35B8BF1A6F09F800A19602 /* PhotoViewerViewController.h */,
 				1B35B8C01A6F09F800A19602 /* PhotoViewerViewController.m */,
-				1B35B8B41A6E8C5900A19602 /* PhotoDiaryViewController.h */,
-				1B35B8B51A6E8C5900A19602 /* PhotoDiaryViewController.m */,
 				1B35B8BC1A6E914C00A19602 /* PhotoCell.h */,
 				1B35B8BD1A6E914C00A19602 /* PhotoCell.m */,
-				1B6270871A6FA92100EC3DF1 /* TimeLapseViewController.h */,
-				1B6270881A6FA92100EC3DF1 /* TimeLapseViewController.m */,
+				1B9D96C31A8AA128003189F9 /* SequenceViewController.h */,
+				1B9D96C41A8AA128003189F9 /* SequenceViewController.m */,
 			);
 			name = PhotoDiary;
 			sourceTree = "<group>";
@@ -348,10 +339,6 @@
 				1B70DF321A756A430039FB1B /* FetchResultViewController.m */,
 				1B4DD2611A6D93DC00C9C1B9 /* FavouritesTableViewController.h */,
 				1B4DD2621A6D93DC00C9C1B9 /* FavouritesTableViewController.m */,
-				1BBAF6F01A5C230F0064A11A /* ShortListTableViewController.h */,
-				1BBAF6F11A5C230F0064A11A /* ShortListTableViewController.m */,
-				1BBAF6E61A5C16DB0064A11A /* BabyNamesTableViewController.h */,
-				1BBAF6E71A5C16DB0064A11A /* BabyNamesTableViewController.m */,
 			);
 			name = BabyNames;
 			sourceTree = "<group>";
@@ -359,8 +346,9 @@
 		1BBAF6F61A5C23710064A11A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B9D96C11A86B8A6003189F9 /* star.png */,
+				1B9D96BF1A86B5E9003189F9 /* favourtiesStar.png */,
 				1BD598571A80BB7700C9B0F7 /* calendar.jpg */,
-				1BD598551A7FF40000C9B0F7 /* charlieBackground.JPG */,
 				1BD598521A7FEEEC00C9B0F7 /* arrow.png */,
 				1BD598501A7FE8A200C9B0F7 /* scarlettbackground.png */,
 				1BD5984A1A7FE48100C9B0F7 /* scarlett1.JPG */,
@@ -562,7 +550,7 @@
 				1B4DD2561A6D790F00C9C1B9 /* girlsnames.plist in Resources */,
 				1B3AEE281A767C62003AF051 /* photoLibraryImage.png in Resources */,
 				1BBCC6B81A0CE4400035D5B2 /* LaunchScreen.xib in Resources */,
-				1BD598561A7FF40000C9B0F7 /* charlieBackground.JPG in Resources */,
+				1B9D96C21A86B8A6003189F9 /* star.png in Resources */,
 				1B6CA4311A70498800018381 /* homePageImage.png in Resources */,
 				1BD598581A80BB7700C9B0F7 /* calendar.jpg in Resources */,
 				1B3AEE2A1A767C62003AF051 /* timeLapseImage.png in Resources */,
@@ -575,6 +563,7 @@
 				1B3AEE301A768253003AF051 /* binImage.png in Resources */,
 				1BD598531A7FEEEC00C9B0F7 /* arrow.png in Resources */,
 				1BBCC6B51A0CE4400035D5B2 /* Images.xcassets in Resources */,
+				1B9D96C01A86B5E9003189F9 /* favourtiesStar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +588,7 @@
 				1B35B8BE1A6E914C00A19602 /* PhotoCell.m in Sources */,
 				1BD598461A7FCED500C9B0F7 /* ForumTableViewController.m in Sources */,
 				1B82CCB51A7D596600D64E06 /* UploadImageViewController.m in Sources */,
+				1B9D96C51A8AA128003189F9 /* SequenceViewController.m in Sources */,
 				1B70DF221A7543EE0039FB1B /* Date.m in Sources */,
 				1B70DF251A7543EE0039FB1B /* Person.m in Sources */,
 				1B82CCBB1A7FA81E00D64E06 /* AddPhotoViewController.m in Sources */,
@@ -611,14 +601,10 @@
 				1B82CCB21A7D529400D64E06 /* LoginViewController.m in Sources */,
 				1B4DD2601A6D8DEC00C9C1B9 /* AddFavouriteNameViewController.m in Sources */,
 				1B3AEE091A764A50003AF051 /* AddItemViewController.m in Sources */,
-				1BBAF6E81A5C16DB0064A11A /* BabyNamesTableViewController.m in Sources */,
-				1BBAF6F21A5C230F0064A11A /* ShortListTableViewController.m in Sources */,
 				1B4DD25B1A6D868500C9C1B9 /* BoysNamesViewController.m in Sources */,
 				1B70DF331A756A430039FB1B /* FetchResultViewController.m in Sources */,
 				1B70DF1F1A7543ED0039FB1B /* Baby.m in Sources */,
 				1B82CCB81A7D5CC600D64E06 /* ForumViewController.m in Sources */,
-				1B35B8B61A6E8C5900A19602 /* PhotoDiaryViewController.m in Sources */,
-				1B6270891A6FA92100EC3DF1 /* TimeLapseViewController.m in Sources */,
 				1B3AEE0C1A764C87003AF051 /* ItemTableViewController.m in Sources */,
 				1BBCC6B01A0CE4400035D5B2 /* ViewController.m in Sources */,
 				1BBCC6AD1A0CE4400035D5B2 /* DearSanta.xcdatamodeld in Sources */,

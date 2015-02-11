@@ -66,12 +66,24 @@
 
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@",items.name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",items.quantity];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"quantity: %@",items.quantity];
     
-    [cell setBackgroundColor:[UIColor clearColor]];
+    cell.backgroundColor = (items.isPurchased.boolValue) ? [UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0]:[UIColor clearColor];
+   // [cell.contentView setBackgroundColor:[UIColor clearColor]];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [cell.contentView setBackgroundColor:[UIColor clearColor]];
-    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self.appDelegate managedObjectContext];
+        Item *itemToDelete = [self.fetchResultsController objectAtIndexPath:indexPath];
+        [context deleteObject:itemToDelete];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Error! %@",error);
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

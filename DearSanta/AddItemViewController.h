@@ -20,8 +20,13 @@
 @property (strong, nonatomic) IBOutlet UITextField *itemNameTextField;
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityPicker;
 
+@property (strong, nonatomic) IBOutlet UISwitch *purchasedSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *purchasedLabel;
+
 
 - (IBAction)saveItemPressed:(id)sender;
+
+- (IBAction)purchaseSwitchPressed:(id)sender;
 
 
 @end

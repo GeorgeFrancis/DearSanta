@@ -15,13 +15,11 @@
 
 @implementation AddImportantDateViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
     NSDate *now = [NSDate date];
-    
     self.datePicker.date = now;
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +54,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     [self.dateNameTextField resignFirstResponder];
 }
 

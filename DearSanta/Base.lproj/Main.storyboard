@@ -248,7 +248,7 @@
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Aat-wJ-hZe">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="scarlett3.JPG">
+                                            <state key="normal" image="favouritesStar.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -409,6 +409,9 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="179" width="360" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="saveData:" destination="xQN-D3-cDU" eventType="touchUpInside" id="FMT-6P-TkC"/>
                                 </connections>
@@ -418,99 +421,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="go to favourites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3x-Nq-75a">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" red="0.99215686274509807" green="0.67843137254901964" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NC-8g-QVq">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="74" id="V8d-6O-74T"/>
-                                    <constraint firstAttribute="height" constant="75" id="iVA-hx-INK"/>
-                                    <constraint firstAttribute="width" secondItem="3NC-8g-QVq" secondAttribute="height" multiplier="74:75" id="kjH-3u-9Dp"/>
-                                </constraints>
-                                <state key="normal" image="arrow.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="V8d-6O-74T"/>
-                                        <exclude reference="iVA-hx-INK"/>
-                                        <exclude reference="kjH-3u-9Dp"/>
-                                    </mask>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="109" width="400" height="20.5"/>
                                 </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="V8d-6O-74T"/>
-                                        <include reference="iVA-hx-INK"/>
-                                        <exclude reference="kjH-3u-9Dp"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="SWd-Kd-S3p" kind="push" id="BTH-Tu-nrk"/>
-                                </connections>
-                            </button>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7XB-Ah-gay" secondAttribute="trailing" id="Buk-gM-NsN"/>
-                            <constraint firstItem="g3x-Nq-75a" firstAttribute="leading" secondItem="xFM-wc-Rg4" secondAttribute="leading" constant="20" id="DRq-le-nCZ"/>
-                            <constraint firstItem="7XB-Ah-gay" firstAttribute="top" secondItem="xgK-9J-u39" secondAttribute="bottom" constant="45" id="K1s-KZ-0Yf"/>
-                            <constraint firstItem="hxe-pc-SVz" firstAttribute="leading" secondItem="xFM-wc-Rg4" secondAttribute="leading" constant="20" id="O5z-Rb-UrR"/>
-                            <constraint firstItem="g3x-Nq-75a" firstAttribute="top" secondItem="3NC-8g-QVq" secondAttribute="top" id="PvY-AA-Zaw"/>
-                            <constraint firstItem="OPh-5P-5Lb" firstAttribute="top" secondItem="3NC-8g-QVq" secondAttribute="bottom" constant="10" id="W9g-on-utv"/>
-                            <constraint firstAttribute="trailing" secondItem="3NC-8g-QVq" secondAttribute="trailing" constant="10" id="kfS-UX-xdq"/>
-                            <constraint firstItem="7XB-Ah-gay" firstAttribute="leading" secondItem="xFM-wc-Rg4" secondAttribute="leading" id="qbt-Cv-Wfk"/>
-                            <constraint firstItem="hxe-pc-SVz" firstAttribute="top" secondItem="7XB-Ah-gay" secondAttribute="bottom" constant="50" id="vix-Nf-hJC"/>
-                            <constraint firstItem="g3x-Nq-75a" firstAttribute="bottom" secondItem="3NC-8g-QVq" secondAttribute="bottom" id="x1Y-7e-CzO"/>
-                            <constraint firstAttribute="trailing" secondItem="hxe-pc-SVz" secondAttribute="trailing" constant="20" id="xoW-ZB-j7h"/>
-                            <constraint firstItem="3NC-8g-QVq" firstAttribute="leading" secondItem="g3x-Nq-75a" secondAttribute="trailing" id="yCl-sg-tdU"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="hxe-pc-SVz"/>
                                 <exclude reference="7XB-Ah-gay"/>
-                                <exclude reference="g3x-Nq-75a"/>
-                                <exclude reference="3NC-8g-QVq"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Buk-gM-NsN"/>
-                                <exclude reference="K1s-KZ-0Yf"/>
-                                <exclude reference="qbt-Cv-Wfk"/>
-                                <exclude reference="W9g-on-utv"/>
-                                <exclude reference="DRq-le-nCZ"/>
-                                <exclude reference="PvY-AA-Zaw"/>
-                                <exclude reference="x1Y-7e-CzO"/>
-                                <exclude reference="kfS-UX-xdq"/>
-                                <exclude reference="yCl-sg-tdU"/>
-                                <exclude reference="O5z-Rb-UrR"/>
-                                <exclude reference="vix-Nf-hJC"/>
-                                <exclude reference="xoW-ZB-j7h"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="hxe-pc-SVz"/>
                                 <include reference="7XB-Ah-gay"/>
-                                <include reference="g3x-Nq-75a"/>
-                                <include reference="3NC-8g-QVq"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Buk-gM-NsN"/>
-                                <include reference="K1s-KZ-0Yf"/>
-                                <include reference="qbt-Cv-Wfk"/>
-                                <include reference="W9g-on-utv"/>
-                                <include reference="DRq-le-nCZ"/>
-                                <include reference="PvY-AA-Zaw"/>
-                                <include reference="x1Y-7e-CzO"/>
-                                <include reference="kfS-UX-xdq"/>
-                                <include reference="yCl-sg-tdU"/>
-                                <include reference="O5z-Rb-UrR"/>
-                                <include reference="vix-Nf-hJC"/>
-                                <include reference="xoW-ZB-j7h"/>
                             </mask>
                         </variation>
                     </view>
@@ -581,20 +507,6 @@
                                     <outlet property="delegate" destination="R8C-KW-7Yv" id="E9P-5d-1KD"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYG-ua-57P">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.6389135293" blue="0.32076022570000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                <state key="normal" title="girls">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="girlsButtonPressed:" destination="R8C-KW-7Yv" eventType="touchUpInside" id="MeX-BF-nCa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-ZH-5Mk">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.6389135293" blue="0.32076022570000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1328,6 +1240,20 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYG-ua-57P">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.6389135293" blue="0.32076022570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <state key="normal" title="girls">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="girlsButtonPressed:" destination="R8C-KW-7Yv" eventType="touchUpInside" id="MeX-BF-nCa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1337,7 +1263,9 @@
                             </constraint>
                             <constraint firstItem="eO6-MS-M0p" firstAttribute="top" secondItem="rDp-8f-Lia" secondAttribute="bottom" id="3H5-VO-6pN"/>
                             <constraint firstItem="3yL-dF-gVR" firstAttribute="top" secondItem="4GZ-ZH-5Mk" secondAttribute="bottom" id="5HN-c9-c8T"/>
-                            <constraint firstAttribute="trailing" secondItem="QYG-ua-57P" secondAttribute="trailing" id="BUq-Be-bRM"/>
+                            <constraint firstAttribute="trailing" secondItem="QYG-ua-57P" secondAttribute="trailing" id="BUq-Be-bRM">
+                                <variation key="widthClass=compact" constant="-1"/>
+                            </constraint>
                             <constraint firstItem="4GZ-ZH-5Mk" firstAttribute="width" secondItem="QYG-ua-57P" secondAttribute="width" id="K5S-01-Wf2"/>
                             <constraint firstItem="O3n-mh-hfp" firstAttribute="top" secondItem="3yL-dF-gVR" secondAttribute="bottom" id="KXm-tT-Ohi"/>
                             <constraint firstItem="4GZ-ZH-5Mk" firstAttribute="top" secondItem="Ix5-ym-HQK" secondAttribute="bottom" id="L9I-nx-vqe">
@@ -1350,18 +1278,22 @@
                             <constraint firstAttribute="trailing" secondItem="O3n-mh-hfp" secondAttribute="trailing" id="bIt-bt-10b"/>
                             <constraint firstItem="rDp-8f-Lia" firstAttribute="top" secondItem="3yL-dF-gVR" secondAttribute="bottom" id="dH8-kB-pDg"/>
                             <constraint firstItem="3yL-dF-gVR" firstAttribute="leading" secondItem="Kcd-y2-sB9" secondAttribute="leading" id="ikq-9y-jqB"/>
-                            <constraint firstItem="QYG-ua-57P" firstAttribute="leading" secondItem="4GZ-ZH-5Mk" secondAttribute="trailing" id="m2Q-qh-eGK"/>
+                            <constraint firstItem="QYG-ua-57P" firstAttribute="leading" secondItem="4GZ-ZH-5Mk" secondAttribute="trailing" id="m2Q-qh-eGK">
+                                <variation key="widthClass=compact" constant="-1"/>
+                            </constraint>
                             <constraint firstItem="3yL-dF-gVR" firstAttribute="top" secondItem="QYG-ua-57P" secondAttribute="bottom" id="mk0-yh-IfU"/>
-                            <constraint firstItem="4GZ-ZH-5Mk" firstAttribute="leading" secondItem="Kcd-y2-sB9" secondAttribute="leading" id="taH-Bp-7RB"/>
+                            <constraint firstItem="4GZ-ZH-5Mk" firstAttribute="leading" secondItem="Kcd-y2-sB9" secondAttribute="leading" id="taH-Bp-7RB">
+                                <variation key="widthClass=compact" constant="-1"/>
+                            </constraint>
                             <constraint firstItem="rDp-8f-Lia" firstAttribute="leading" secondItem="Kcd-y2-sB9" secondAttribute="leading" id="udg-d0-1zz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="rDp-8f-Lia"/>
                                 <exclude reference="O3n-mh-hfp"/>
-                                <exclude reference="QYG-ua-57P"/>
                                 <exclude reference="4GZ-ZH-5Mk"/>
                                 <exclude reference="3yL-dF-gVR"/>
+                                <exclude reference="QYG-ua-57P"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3H5-VO-6pN"/>
@@ -1389,9 +1321,9 @@
                             <mask key="subviews">
                                 <include reference="rDp-8f-Lia"/>
                                 <include reference="O3n-mh-hfp"/>
-                                <include reference="QYG-ua-57P"/>
                                 <include reference="4GZ-ZH-5Mk"/>
                                 <include reference="3yL-dF-gVR"/>
+                                <include reference="QYG-ua-57P"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3H5-VO-6pN"/>
@@ -1417,11 +1349,13 @@
                         </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem image="favourites.png" id="ESF-aP-htM">
+                        <barButtonItem image="star.png" id="ESF-aP-htM">
                             <connections>
                                 <segue destination="SWd-Kd-S3p" kind="push" id="QnA-UU-FBN"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="bLK-Xk-hXF"/>
+                        <barButtonItem systemItem="search" id="wUv-FV-1UQ"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Baby Names" id="O3B-4a-vYC">
                         <barButtonItem key="backBarButtonItem" title=" " id="YHC-Ao-xqj"/>
@@ -1482,30 +1416,50 @@
                                     <rect key="frame" x="38" y="137" width="323" height="30"/>
                                 </variation>
                             </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFd-Ua-IfT">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="187" width="400" height="162"/>
+                                </variation>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fq7-fj-4vN">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="325" y="318" width="30" height="30"/>
+                                    <rect key="frame" x="241" y="480" width="30" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="editButtonPressed:" destination="plS-De-idU" eventType="touchUpInside" id="uqd-aW-feu"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKg-zv-8Jk">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <color key="onTintColor" red="0.99215686270000003" green="0.67843137249999996" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="77" y="455" width="51" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="purchaseSwitchPressed:" destination="plS-De-idU" eventType="valueChanged" id="xxD-sS-byh"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="6h8-JQ-UGF"/>
+                                <exclude reference="mFd-Ua-IfT"/>
                                 <exclude reference="fq7-fj-4vN"/>
+                                <exclude reference="tKg-zv-8Jk"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="6h8-JQ-UGF"/>
+                                <include reference="mFd-Ua-IfT"/>
                                 <include reference="fq7-fj-4vN"/>
+                                <include reference="tKg-zv-8Jk"/>
                             </mask>
                         </variation>
                     </view>
@@ -1518,6 +1472,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemNameTextField" destination="6h8-JQ-UGF" id="kGv-ZP-aZs"/>
+                        <outlet property="purchaseSwitch" destination="tKg-zv-8Jk" id="cdN-cU-BJL"/>
+                        <outlet property="quantityPicker" destination="mFd-Ua-IfT" id="Wv3-ow-6h5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Za3-Ar-AYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2221,23 +2177,15 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="jeR-kW-TNU"/>
-                        <barButtonItem title="share" id="LQy-sB-rZq"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7Bc-TW-zbS"/>
-                        <barButtonItem image="binImage.png" id="DCq-ca-qtG">
-                            <connections>
-                                <action selector="deletePhotoButtonPressed:" destination="iLu-a9-QbJ" id="Fva-Ma-nhV"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7OE-Zq-te7"/>
                         <barButtonItem image="homeImage.png" id="cD9-yD-CLV">
                             <connections>
-                                <action selector="goHomePressed:" destination="iLu-a9-QbJ" id="Oqr-07-rs7"/>
+                                <action selector="homeButtonPressed:" destination="iLu-a9-QbJ" id="cYq-sW-2PE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="u9S-2G-Et2"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ZE4-Va-0s9">
-                        <barButtonItem key="backBarButtonItem" title="all photos" id="ZXo-me-Gfd"/>
+                        <barButtonItem key="backBarButtonItem" title="all photos" id="T1Q-Yn-9SQ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="photoImageView" destination="o7v-s5-w9d" id="8Sq-Yh-dk4"/>
@@ -2347,7 +2295,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ghH-j9-foQ"/>
-                        <barButtonItem image="homeImage.png" id="S1f-lq-zjZ"/>
+                        <barButtonItem image="homeImage.png" id="S1f-lq-zjZ">
+                            <connections>
+                                <action selector="homeButtonPressed:" destination="Q8z-xG-8cT" id="RQs-cf-sdG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="2yY-jh-vG5"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="photo diary" id="Ewq-aK-3p9">
@@ -2446,7 +2398,7 @@
         <!--time lapse-->
         <scene sceneID="ha5-GS-nAC">
             <objects>
-                <viewController id="nsF-jE-uQU" customClass="TimeLapseViewController" sceneMemberID="viewController">
+                <viewController id="nsF-jE-uQU" customClass="SequenceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DOM-j5-90k"/>
                         <viewControllerLayoutGuide type="bottom" id="Zdf-MW-6gH"/>
@@ -2493,13 +2445,13 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="iVC-9A-YUU"/>
                         <barButtonItem image="playImage.png" id="DDA-Rh-CI8">
                             <connections>
-                                <action selector="playTimeLapsePressed:" destination="nsF-jE-uQU" id="o4c-4s-IbZ"/>
+                                <action selector="playButtonPressed:" destination="nsF-jE-uQU" id="KYq-Vq-bzE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="4Pm-7Z-R86"/>
                         <barButtonItem image="stopImage.png" id="USn-rB-OYB">
                             <connections>
-                                <action selector="stopTimeLapsePressed:" destination="nsF-jE-uQU" id="Lve-HC-Wsz"/>
+                                <action selector="stopButtonPressed:" destination="nsF-jE-uQU" id="HI8-fk-5PT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="iiY-q2-cdW"/>
@@ -2508,7 +2460,7 @@
                         <barButtonItem key="backBarButtonItem" title="all photos" id="HX3-vo-W6j"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="timeLapseImageView" destination="tPO-V3-YzH" id="Pwz-JQ-vbp"/>
+                        <outlet property="sequenceImageView" destination="tPO-V3-YzH" id="9de-bH-7WB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKm-tu-1UF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2991,36 +2943,40 @@ babynames - browse through over 10,000 popular baby names.  add your favourites 
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJn-Lj-Dnp">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJT-UK-utz">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.67843137249999996" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="brought">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gWd-eT-DTZ">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="65" y="454" width="51" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="purchaseSwitchPressed:" destination="7QL-3X-08s" eventType="valueChanged" id="N4b-z9-Ny3"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="still to buy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdJ-5I-bgK">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="379" width="296" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mJT-UK-utz" secondAttribute="trailing" constant="145" id="8u7-20-FNR">
-                                <variation key="widthClass=compact" constant="60"/>
-                            </constraint>
-                            <constraint firstItem="mJT-UK-utz" firstAttribute="top" secondItem="rJn-Lj-Dnp" secondAttribute="bottom" constant="20" id="DSO-BB-x7X"/>
                             <constraint firstItem="sJb-pN-s3R" firstAttribute="leading" secondItem="8cR-lU-qbj" secondAttribute="leading" constant="20" id="DsD-JI-XzY"/>
                             <constraint firstItem="sJb-pN-s3R" firstAttribute="top" secondItem="ZcY-yD-y27" secondAttribute="bottom" constant="55" id="Kzt-77-7aY"/>
                             <constraint firstItem="rJn-Lj-Dnp" firstAttribute="leading" secondItem="8cR-lU-qbj" secondAttribute="leading" id="Pqo-TW-yaM"/>
                             <constraint firstAttribute="trailing" secondItem="sJb-pN-s3R" secondAttribute="trailing" constant="20" id="js8-jr-5Il"/>
                             <constraint firstAttribute="trailing" secondItem="rJn-Lj-Dnp" secondAttribute="trailing" id="oed-DT-qdE"/>
-                            <constraint firstItem="mJT-UK-utz" firstAttribute="leading" secondItem="8cR-lU-qbj" secondAttribute="leading" constant="145" id="onc-av-5L5">
-                                <variation key="widthClass=compact" constant="60"/>
-                            </constraint>
                             <constraint firstItem="rJn-Lj-Dnp" firstAttribute="top" secondItem="sJb-pN-s3R" secondAttribute="bottom" constant="33" id="r6x-Tb-7i8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="sJb-pN-s3R"/>
                                 <exclude reference="rJn-Lj-Dnp"/>
-                                <exclude reference="mJT-UK-utz"/>
+                                <exclude reference="gWd-eT-DTZ"/>
+                                <exclude reference="fdJ-5I-bgK"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Pqo-TW-yaM"/>
@@ -3029,16 +2985,14 @@ babynames - browse through over 10,000 popular baby names.  add your favourites 
                                 <exclude reference="DsD-JI-XzY"/>
                                 <exclude reference="Kzt-77-7aY"/>
                                 <exclude reference="js8-jr-5Il"/>
-                                <exclude reference="8u7-20-FNR"/>
-                                <exclude reference="DSO-BB-x7X"/>
-                                <exclude reference="onc-av-5L5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="sJb-pN-s3R"/>
                                 <include reference="rJn-Lj-Dnp"/>
-                                <include reference="mJT-UK-utz"/>
+                                <include reference="gWd-eT-DTZ"/>
+                                <include reference="fdJ-5I-bgK"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Pqo-TW-yaM"/>
@@ -3047,9 +3001,6 @@ babynames - browse through over 10,000 popular baby names.  add your favourites 
                                 <include reference="DsD-JI-XzY"/>
                                 <include reference="Kzt-77-7aY"/>
                                 <include reference="js8-jr-5Il"/>
-                                <include reference="8u7-20-FNR"/>
-                                <include reference="DSO-BB-x7X"/>
-                                <include reference="onc-av-5L5"/>
                             </mask>
                         </variation>
                     </view>
@@ -3062,6 +3013,8 @@ babynames - browse through over 10,000 popular baby names.  add your favourites 
                     </navigationItem>
                     <connections>
                         <outlet property="itemNameTextField" destination="sJb-pN-s3R" id="fQx-wy-EdD"/>
+                        <outlet property="purchasedLabel" destination="fdJ-5I-bgK" id="Wzw-0V-p5j"/>
+                        <outlet property="purchasedSwitch" destination="gWd-eT-DTZ" id="GRy-km-Xf1"/>
                         <outlet property="quantityPicker" destination="rJn-Lj-Dnp" id="YZV-4X-Xuy"/>
                     </connections>
                 </viewController>
@@ -3071,23 +3024,20 @@ babynames - browse through over 10,000 popular baby names.  add your favourites 
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.png" width="354" height="345"/>
         <image name="babyNamesImage.png" width="684" height="631"/>
-        <image name="binImage.png" width="44" height="44"/>
         <image name="calendar.jpg" width="500" height="405"/>
-        <image name="favourites.png" width="44" height="44"/>
+        <image name="favouritesStar.png" width="640" height="1136"/>
         <image name="homeImage.png" width="44" height="44"/>
         <image name="homePageImage.png" width="2703" height="2519"/>
         <image name="photoLibraryImage.png" width="44" height="44"/>
         <image name="playImage.png" width="44" height="44"/>
-        <image name="scarlett3.JPG" width="640" height="1136"/>
         <image name="scarlettbackground.png" width="1080" height="1920"/>
+        <image name="star.png" width="35" height="35"/>
         <image name="stopImage.png" width="44" height="44"/>
         <image name="takePhotoImage.png" width="44" height="44"/>
         <image name="timeLapseImage.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JSc-vD-rRf"/>
-        <segue reference="QnA-UU-FBN"/>
     </inferredMetricsTieBreakers>
 </document>
