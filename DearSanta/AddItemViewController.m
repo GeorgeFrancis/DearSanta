@@ -26,6 +26,7 @@
     self.quantityPicker.dataSource = self;
     self.quantityPicker.delegate = self;
     self.selectedTitle = @"1";
+    // self.navigationController.navigationBar.topItem.title = @"";
 }
 
 -(void)createNewItem

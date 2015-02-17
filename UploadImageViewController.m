@@ -60,7 +60,8 @@
 }
 
 
-- (IBAction)uploadButtonPressed:(id)sender {
+-(void)uploadQuestion
+{
     
     [self.addCommentTextField resignFirstResponder];
     
@@ -76,37 +77,60 @@
     
     [self.view addSubview:loadingSpinner];
     
+    self.titleString = self.addTitleTextField.text;
+    
+    NSString *newString = [self.titleString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     
     //TODO: Upload a new picture
-//    NSData *pictureData = UIImagePNGRepresentation(self.imageToUpload.image);
-//    
-//    PFFile *file = [PFFile fileWithName:@"img" data:pictureData];
-//    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    //    NSData *pictureData = UIImagePNGRepresentation(self.imageToUpload.image);
+    //
+    //    PFFile *file = [PFFile fileWithName:@"img" data:pictureData];
+    //    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     
     //    if (succeeded){
-            //2
-            //Add the image to the object, and add the comment and the user
-            PFObject *imageObject = [PFObject objectWithClassName:@"WallImageObject"];
-      //      [imageObject setObject:file forKey:@"image"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"user"];
-            [imageObject setObject:self.addCommentTextField.text forKey:@"comment"];
-            [imageObject setObject:self.addCommentTextField.text forKey:@"chat"];
-            //3
-            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                //4
-                if (succeeded){
-                    //Go back to the wall
-                    [self.navigationController popViewControllerAnimated:YES];
-                }
-                else{
-                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    [errorAlertView show];
-                }
-            }];
+    //2
+    //Add the image to the object, and add the comment and the user
     
     
-        }
+    PFObject *imageObject = [PFObject objectWithClassName:[NSString stringWithFormat:@"%@",newString]];
+    PFObject *titleObject = [PFObject objectWithClassName:@"QuestionTitles"];
+    
+    [titleObject setObject:[PFUser currentUser].username forKey:@"user"];
+    [titleObject setObject:self.titleString forKey:@"fullTitles"];
+    [titleObject setObject:newString forKey:@"searchTitles"];
+    
+    
+    //      [imageObject setObject:file forKey:@"image"];
+    [imageObject setObject:[PFUser currentUser].username forKey:@"user"];
+    [imageObject setObject:self.addCommentTextField.text forKey:@"comment"];
+    [imageObject setObject:self.addCommentTextField.text forKey:@"chat"];
+    [imageObject setObject:self.titleString forKey:@"title"];
+    //3
+    
+    [titleObject save];
+    [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     //  [titleObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         //4
+         if (succeeded){
+             
+             
+             
+             
+             
+             
+             [self.navigationController popViewControllerAnimated:YES];
+         }
+         else{
+             NSString *errorString = [[error userInfo] objectForKey:@"error"];
+             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+             [errorAlertView show];
+         }
+     }];
+    
+    
+}
 //        else{
 //            //5
 //            NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -117,4 +141,37 @@
 //        NSLog(@"Uploaded: %d %%", percentDone);
 //    }];
 //}
+
+
+
+
+
+- (IBAction)uploadButtonPressed:(id)sender {
+    
+    
+    char test = [self.addTitleTextField.text characterAtIndex:0];
+    if (test >= '0' && test <= '9'){
+        
+        UIAlertView *registerAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"title can't begin with a number" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [registerAlertView show];
+    
+    
+    }
+    else {
+        
+        [self uploadQuestion];
+    
+    }
+}
+//    if ([self.addTitleTextField.text length] > 0 && [self.addCommentTextField.text length]>0)
+//    {
+//        [self uploadQuestion];
+//    }
+//    else {
+//        UIAlertView *registerAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"enter all fields" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        [registerAlertView show];
+//    }
+
+
+
 @end

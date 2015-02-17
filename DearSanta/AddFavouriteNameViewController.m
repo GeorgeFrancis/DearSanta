@@ -23,6 +23,8 @@
     
     [self.babyNameLabel setText:[NSString stringWithFormat:@"%@",self.babyName.name]];
     
+    self.navigationController.navigationBar.topItem.title = @"";
+    
     [super viewDidLoad];
 }
 

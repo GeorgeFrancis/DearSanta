@@ -21,8 +21,8 @@
     
     [self loadInBabyNames];
     
-    [[UINavigationBar appearance]setBackgroundColor:[UIColor colorWithRed:1 green:0.553 blue:0.118 alpha:1.0]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0]];
+    [[UINavigationBar appearance]setBackgroundColor:[UIColor colorWithRed:0.945 green:0.329 blue:0.043 alpha:1]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.945 green:0.329 blue:0.043 alpha:1]];
     [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     

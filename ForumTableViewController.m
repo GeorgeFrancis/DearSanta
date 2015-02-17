@@ -8,8 +8,12 @@
 
 #import "ForumTableViewController.h"
 #import <Parse/Parse.h>
+#import "CommentsTableViewController.h"
 
 @interface ForumTableViewController ()
+
+@property (nonatomic) NSString *userName;
+@property (nonatomic) NSString *titleToPass;
 
 @end
 
@@ -63,8 +67,11 @@
     
     PFObject *wallObject = [self.wallObjectsArray objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [wallObject objectForKey:@"comment"];
+    cell.textLabel.text = [wallObject objectForKey:@"fullTitles"];
     cell.detailTextLabel.text = [wallObject objectForKey:@"user"];
+    
+    self.userName = [wallObject objectForKey:@"user"];
+    
     
    // PFFile *image = (PFFile *)[wallObject objectForKey:@"image"];
   //  UIImage *img = [UIImage imageWithData:image.getData];
@@ -73,11 +80,20 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    return self.userName;
+}
+
 -(void)getWallImages
 {
     //Prepare the query to get all the images in descending order
     //1
-    PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
+    
+  
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"QuestionTitles"];
     //2
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -100,50 +116,28 @@
     
 }
 
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ViewComments"]) {
+        
+ 
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        
+        UITableViewCell *cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:indexPath];
+        
+    //    UITableViewCell *cell = cellForRowAtIndexPath:indexPath;
+        self.titleToPass = cell.textLabel.text;
+        self.titleToPass = [self.titleToPass stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        
+    
+        [segue.destinationViewController setTitleNameString:self.titleToPass];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

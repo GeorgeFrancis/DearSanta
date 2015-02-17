@@ -148,33 +148,36 @@
 -(void)setUpButtons
 {
     [[self.photoDiaryButton layer] setMasksToBounds:YES];
-    [[self.photoDiaryButton layer] setBorderWidth:2.0f];
-    [[self.photoDiaryButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.photoDiaryButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+  //  [[self.photoDiaryButton layer] setBorderWidth:2.0f];
+  //  [[self.photoDiaryButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+ //   [[self.photoDiaryButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
     
     [[self.essentialItemsButton layer] setMasksToBounds:YES];
-    [[self.essentialItemsButton layer] setBorderWidth:2.0f];
-    [[self.essentialItemsButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.essentialItemsButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+ //   [[self.essentialItemsButton layer] setBorderWidth:2.0f];
+ //   [[self.essentialItemsButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+  //  [[self.essentialItemsButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
     
     [[self.specialDatesButton layer] setMasksToBounds:YES];
-    [[self.specialDatesButton layer] setBorderWidth:2.0f];
-    [[self.specialDatesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.specialDatesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+  //  [[self.specialDatesButton layer] setBorderWidth:2.0f];
+  //  [[self.specialDatesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+   // [[self.specialDatesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
     
     [[self.babyNamesButton layer] setMasksToBounds:YES];
-    [[self.babyNamesButton layer] setBorderWidth:2.0f];
-    [[self.babyNamesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.babyNamesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+  //  [[self.babyNamesButton layer] setBorderWidth:2.0f];
+  //  [[self.babyNamesButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+  //  [[self.babyNamesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
     
     [[self.forumButton layer] setMasksToBounds:YES];
-    [[self.forumButton layer] setBorderWidth:2.0f];
-    [[self.forumButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.forumButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+   // [[self.forumButton layer] setBorderWidth:2.0f];
+   // [[self.forumButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+ //   [[self.forumButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
     
-    [[self.infoButton layer] setBorderWidth:2.0f];
-    [[self.infoButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.infoButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+  //  [[self.infoButton layer] setBorderWidth:2.0f];
+  //  [[self.infoButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+  //  [[self.infoButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
+    
+ //   [[self.favouritesButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:1].CGColor];
+
 }
 
 - (void)setShowInfo:(BOOL)showInfo

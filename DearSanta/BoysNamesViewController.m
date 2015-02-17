@@ -103,7 +103,7 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.contentView setBackgroundColor:[UIColor clearColor]];
     
-    cell.imageView.image = (babyName.inBaby) ? [UIImage imageNamed:@"favourites.png"] : [UIImage imageNamed:@""];
+    cell.imageView.image = (babyName.inBaby) ? [UIImage imageNamed:@"starFav"] : [UIImage imageNamed:@""];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -8,6 +8,7 @@
 
 #import "ImportantDateTableViewController.h"
 #import "Date.h"
+#import "EditImportantDateViewController.h"
 
 @interface ImportantDateTableViewController ()
 
@@ -51,7 +52,6 @@
     }
     
     return _fetchResultsController;
-    
 }
 
 - (void)configureTableViewCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
@@ -79,14 +79,11 @@
     if (today == newDate1) {
         
         NSLog(@"alarm today");
-        
-        
+
     }
-    
     [cell setBackgroundColor:[UIColor clearColor]];
     
     [cell.contentView setBackgroundColor:[UIColor clearColor]];
-    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,7 +112,6 @@
     [[UIApplication sharedApplication]scheduleLocalNotification:notification];
 }
 
-
 -(void)checkForNotification
 {
     
@@ -125,6 +121,17 @@
 {
     [super didReceiveMemoryWarning];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"EditDates"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Date *dates = [self.fetchResultsController objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setCurrentDate:dates];
+    }
+}
+
 
 
 @end

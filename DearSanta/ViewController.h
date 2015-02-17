@@ -23,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *babyNamesButton;
 @property (strong, nonatomic) IBOutlet UIButton *specialDatesButton;
 @property (strong, nonatomic) IBOutlet UIButton *forumButton;
+@property (strong, nonatomic) IBOutlet UIButton *favouritesButton;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;

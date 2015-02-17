@@ -10,7 +10,10 @@
 
 @interface UploadImageViewController : UIViewController <UIPickerViewDelegate>
 
+@property (strong, nonatomic) NSString *titleString;
+
 @property (strong, nonatomic) IBOutlet UITextField *addCommentTextField;
+@property (strong, nonatomic) IBOutlet UITextField *addTitleTextField;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageToUpload;
 

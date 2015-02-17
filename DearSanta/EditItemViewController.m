@@ -10,7 +10,6 @@
 
 @interface EditItemViewController ()
 
-//@property (nonatomic) BOOL brought;
 @property NSInteger quantityCount;
 @property (strong,nonatomic) NSString *selectedTitle;
 
@@ -31,12 +30,21 @@
 
 -(void)setUpData
 {
+    [[self.editButton layer] setMasksToBounds:YES];
+    [[self.editButton layer] setBorderWidth:2.0f];
+    [[self.editButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
+    [[self.editButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
+
+    
+    
     self.itemNameTextField.text = [NSString stringWithFormat:@"%@",self.editItems.name];
 
     [self.quantityPicker selectRow:[self.editItems.quantity integerValue]-1 inComponent:0 animated:YES];
     
- //   self.brought = [self.editItems.isPurchased  boolValue];
-
+    
+    self.quantityCount = [self.editItems.quantity floatValue];
+    
+    
     if ([[self.editItems isPurchased] boolValue] == YES) {
         
         self.purchaseSwitch.on = YES;
@@ -64,7 +72,10 @@
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     self.editItems.name = self.itemNameTextField.text;
-    self.editItems.quantity = @([self.selectedTitle floatValue]);
+    
+    NSNumber *numberObject = [NSNumber numberWithInteger:self.quantityCount];
+    
+    self.editItems.quantity = numberObject;
 
     
     if (self.purchaseSwitch.on) {
@@ -77,6 +88,8 @@
     }
     
     [delegate saveContext];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)purchaseSwitchPressed:(id)sender {

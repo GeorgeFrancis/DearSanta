@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 GeorgeFrancis. All rights reserved.
 //
 
-#import "ViewController.h"
+//#import "ViewController.h"
 #import "ItemTableViewController.h"
 #import "AppDelegate.h"
 #import "Item.h"
@@ -17,6 +17,7 @@
 @property (strong,nonatomic) Item *editItems;
 @property (strong, nonatomic) NSArray *pickerData;
 
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) IBOutlet UITextField *itemNameTextField;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *quantityPicker;

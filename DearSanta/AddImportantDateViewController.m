@@ -39,11 +39,11 @@
     Date *dates = (Date*)[[NSManagedObject alloc]initWithEntity:entityDescription
                                  insertIntoManagedObjectContext:self.managedObjectContext];
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    dateFormat.timeZone = [NSTimeZone defaultTimeZone];
-    dateFormat.timeStyle = NSDateFormatterShortStyle;
-    dateFormat.dateStyle = NSDateFormatterShortStyle;
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+//    dateFormat.timeZone = [NSTimeZone defaultTimeZone];
+//    dateFormat.timeStyle = NSDateFormatterShortStyle;
+//    dateFormat.dateStyle = NSDateFormatterShortStyle;
+//    [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSDate *newDate = self.datePicker.date;
     
     dates.date = newDate;
