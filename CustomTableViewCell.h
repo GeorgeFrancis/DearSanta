@@ -10,4 +10,7 @@
 
 @interface CustomTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *userLabel;
+@property (strong, nonatomic) IBOutlet UILabel *commentLabel;
+
 @end

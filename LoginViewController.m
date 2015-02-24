@@ -11,50 +11,53 @@
 
 @interface LoginViewController ()
 
+@property (assign, nonatomic) BOOL loggedIn;
+
 @end
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    
-    [[self.loginButton layer] setMasksToBounds:YES];
-    [[self.loginButton layer] setBorderWidth:2.0f];
-    [[self.loginButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.loginButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
-    
-    [[self.registerButton layer] setMasksToBounds:YES];
-    [[self.registerButton layer] setBorderWidth:2.0f];
-    [[self.registerButton layer] setBorderColor:[UIColor colorWithRed:0.988 green:0.737 blue:0.494 alpha:1.0].CGColor];
-    [[self.registerButton layer] setBackgroundColor:[UIColor colorWithRed:1 green:0.855 blue:0.714 alpha:0.5].CGColor];
-
-
-    
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)loginButtonPressed:(id)sender {
     
-    [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordEnterTextField.text block:^(PFUser *user, NSError *error) {
+    self.loggedIn = NO;
+    
+    NSData *colourData = [[NSUserDefaults standardUserDefaults]objectForKey:@"ColorTheme"];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colourData];
+    [[self.loginButton layer] setMasksToBounds:YES];
+    self.loginButton.backgroundColor = color;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.userNameTextField resignFirstResponder];
+    [self.passwordEnterTextField resignFirstResponder];
+}
+
+- (IBAction)loginButtonPressed:(id)sender
+{
+    NSString *loginUserName = self.userNameTextField.text;
+    NSString *loginPassword = self.passwordEnterTextField.text;
+    
+    NSString *newUserString = [loginUserName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *newPasswordString = [loginPassword stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+
+    
+    [PFUser logInWithUsernameInBackground:newUserString password:newPasswordString block:^(PFUser *user, NSError *error) {
         if (user) {
             //Open the wall
-            [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
-        } else {
+            
+            [self presentAlertMessage:nil];
+            
+            
+                    } else {
             //Something bad has ocurred
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -62,4 +65,30 @@
         }
     }];
 }
+
+-(void)presentAlertMessage:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setDelegate:self];
+    
+    alert = [[UIAlertView alloc]initWithTitle:@"stay logged in" message:message delegate:self cancelButtonTitle:@"yes" otherButtonTitles:@"no",nil];
+    
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        self.loggedIn = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.loggedIn forKey:@"loggedIn"];
+        [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+    }
+    else if (buttonIndex == 1)
+    {
+        [alertView dismissWithClickedButtonIndex:1 animated:YES];
+        NSLog(@"no pressed");
+    }
+}
+
 @end

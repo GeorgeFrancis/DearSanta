@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) IBOutlet UIButton *registerButton;
 
-
 - (IBAction)loginButtonPressed:(id)sender;
 
 @end

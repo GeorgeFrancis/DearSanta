@@ -79,7 +79,37 @@
     
     self.titleString = self.addTitleTextField.text;
     
+    
+    
     NSString *newString = [self.titleString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    
+    
+//    NSString *unfilteredString = @"!@#$%^&*()_+|abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+//    NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"] invertedSet];
+//    NSString *resultString = [[unfilteredString componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+//    NSLog (@"Result: %@", resultString);
+    
+    
+  //  NSCharacterSet *chs = [NSCharacterSet characterSetWithCharactersInString:@"<!@#$%^&*()_+|>"];
+ //   self.titleString = [self.titleString stringByTrimmingCharactersInSet:chs];
+    
+ //   NSString *dataToken = @"<8c09362c 82d6b735 c82fb2d9 8070db6f f73419b3 9da15e34 72aba570 6fbf5a45>";
+  //  NSString *str = [dataToken stringByReplacingOccurrencesOfString:@"<!@#$%^&*()_+|>" withString:@""];
+    
+    
+    NSArray *characters = @[@"<", @"!", @"@", @"#", @"$", @"%", @"^", @"&", @"*", @"(", @")", @",", @"_", @"+", @"|", @">"];
+    
+    for (NSString *str in characters) {
+        newString = [newString stringByReplacingOccurrencesOfString:str withString:@""];
+    }
+    
+ //   self.titleString = [self.titleString stringByReplacingOccurrencesOfString:@"<!@#$%^&*()_+|>" withString:@""];
+    
+    
+    
+    
+    NSLog(@"%@", newString);
     
     
     //TODO: Upload a new picture
@@ -91,6 +121,10 @@
     //    if (succeeded){
     //2
     //Add the image to the object, and add the comment and the user
+    
+    
+    
+    
     
     
     PFObject *imageObject = [PFObject objectWithClassName:[NSString stringWithFormat:@"%@",newString]];

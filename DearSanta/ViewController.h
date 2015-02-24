@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchResultsController;
 
 @property (nonatomic) BOOL showInfo;
+@property (nonatomic, retain) NSArray *wallObjectsArray;
 
 @property (strong, nonatomic) IBOutlet UIButton *photoDiaryButton;
 @property (strong, nonatomic) IBOutlet UIButton *essentialItemsButton;
@@ -24,15 +25,26 @@
 @property (strong, nonatomic) IBOutlet UIButton *specialDatesButton;
 @property (strong, nonatomic) IBOutlet UIButton *forumButton;
 @property (strong, nonatomic) IBOutlet UIButton *favouritesButton;
-
-
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
-@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *profileButton;
+@property (strong, nonatomic) IBOutlet UIView *gradientView;
+@property (strong, nonatomic) IBOutlet UIView *backGroundView;
+@property (strong, nonatomic) IBOutlet UIImageView *lowerBackground;
+@property (strong, nonatomic) IBOutlet UILabel *dueDateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *latestQuestionLabel;
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *labelLeftConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonRightConstraint;
 
-- (IBAction)infoButtonPressed:(id)sender;
+- (IBAction)forumButtonPressed:(id)sender;
+- (IBAction)profileButtonPressed:(id)sender;
+- (IBAction)settingsButtonPressed:(id)sender;
+- (IBAction)communityButtonPressed:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingButton;
+
+-(void)updateGradient;
 
 @end
 

@@ -11,5 +11,6 @@
 @interface ForumTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *wallObjectsArray;
+- (IBAction)logoutButtonPressed:(id)sender;
 
 @end
