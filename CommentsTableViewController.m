@@ -9,31 +9,32 @@
 #import "CommentsTableViewController.h"
 #import <Parse/Parse.h>
 #import "AddCommentViewController.h"
-#import "BasicCell.h"
-
-static NSString *const BasicCellIdentifier = @"BasicCell";
-
+#import "CustomTableViewCell.h"
 
 @interface CommentsTableViewController ()
 
-@property (nonatomic) NSString *titleString;
+@property (strong, nonatomic) CustomTableViewCell *customCell;
 
 @end
 
+
+
 @implementation CommentsTableViewController
 
-- (void)viewDidLoad {
-    [self getWallImages];
-    [self.tableView reloadData];
-    
+-(void)viewDidLoad
+{
     
     [super viewDidLoad];
+    [self getWallImages];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor orangeColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(getWallImages)
+                  forControlEvents:UIControlEventValueChanged];
+
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -48,155 +49,112 @@ static NSString *const BasicCellIdentifier = @"BasicCell";
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.commentsArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    
+    PFObject *commentObject = [self.commentsArray objectAtIndex:indexPath.row];
+    
+    cell.userLabel.text = [NSString stringWithFormat:@"comment by %@",[commentObject objectForKey:@"user"]];
+    cell.commentLabel.text = [commentObject objectForKey:@"comment"];
+    
+    
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+
+{
+    return self.titleNameString;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(!self.customCell) {
+            self.customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+            }
+    
+    self.customCell = (CustomTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    long chars = self.customCell.commentLabel.text.length;
+    long lines = chars/10;
+    CGFloat height = 100 +5*lines;
+
+    return height;
 }
 
 -(void)getWallImages
+
 {
-    //Prepare the query to get all the images in descending order
-    //1
-    
-    
-    
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"%@",self.titleNameString]];
-    //2
+    
     [query orderByDescending:@"createdAt"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
         //3
+        
         if (!error) {
+            
             //Everything was correct, put the new objects and load the wall
+            
             self.commentsArray = nil;
+            
             self.commentsArray = [[NSArray alloc] initWithArray:objects];
             
-            [self.tableView reloadData];
+            [self reloadData];
             
         } else {
-            
             //4
+            
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
             [errorAlertView show];
+            [self.refreshControl endRefreshing];
         }
     }];
-    
 }
 
+- (void)reloadData
+{
+    // Reload table data
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self performSelector:@selector(endRefresh) withObject:self afterDelay:1];
+        
+        
+    }
+}
 
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    
-//    return self.commentsArray.count;
-//}
-//
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    
-//    PFObject *commentObject = [self.commentsArray objectAtIndex:indexPath.row];
-//    
-//    cell.textLabel.text = [commentObject objectForKey:@"comment"];
-//    cell.detailTextLabel.text = [commentObject objectForKey:@"user"];
-//    
-////    self.userName = [wallObject objectForKey:@"user"];
-//    
-//    
-//    // PFFile *image = (PFFile *)[wallObject objectForKey:@"image"];
-//    //  UIImage *img = [UIImage imageWithData:image.getData];
-//    //  UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
-//    // cell.imageView.image = [UIImage imageWithData:image.getData];
-//    return cell;
-//}
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    
-//    return self.titleNameString;
-//}
-
+-(void)endRefresh
+{
+    [self.refreshControl endRefreshing];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"AddNewComment"]) {
-    
+        
         [segue.destinationViewController setQuestionTitle:self.titleNameString];
     }
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.commentsArray count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self basicCellAtIndexPath:indexPath];
-}
-
-- (BasicCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
-    BasicCell *cell = [self.tableView dequeueReusableCellWithIdentifier:BasicCellIdentifier forIndexPath:indexPath];
-    [self configureBasicCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
-- (void)configureBasicCell:(BasicCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-   
-    PFObject *commentObject = [self.commentsArray objectAtIndex:indexPath.row];
-    
-   self.titleString = [commentObject objectForKey:@"comment"];
-    
-//    RSSItem *item = self.feedItems[indexPath.row];
-//    [self setTitleForCell:cell item:item];
-//    [self setSubtitleForCell:cell item:item];
-}
-
-- (void)setTitleForCell:(BasicCell *)cell {
-    
-    
-    [cell.titleLabel setText:self.titleString];
-}
-
-//- (void)setSubtitleForCell:(BasicCell *)cell {
-//    NSString *subtitle = item.mediaText ?: item.mediaDescription;
-//    
-//    // Some subtitles can be really long, so only display the
-//    // first 200 characters
-//    if (subtitle.length > 200) {
-//        subtitle = [NSString stringWithFormat:@"%@...", [subtitle substringToIndex:200]];
-//    }
-//    
-//    [cell.subtitleLabel setText:subtitle];
-//}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self heightForBasicCellAtIndexPath:indexPath];
-}
-
-- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-    static BasicCell *sizingCell = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:BasicCellIdentifier];
-    });
-    
-    [self configureBasicCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-}
-
-- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
-    [sizingCell setNeedsLayout];
-    [sizingCell layoutIfNeeded];
-    
-    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + 1.0f; // Add 1.0f for the cell separator height
-}
-
-
-
-
 
 @end

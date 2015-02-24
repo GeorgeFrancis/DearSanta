@@ -20,52 +20,54 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self loadInBabyNames];
-    
-    [[UINavigationBar appearance]setBackgroundColor:[UIColor colorWithRed:0.945 green:0.329 blue:0.043 alpha:1]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.945 green:0.329 blue:0.043 alpha:1]];
-    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [self setAppearance];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
-    
-    
     [Parse setApplicationId:@"2HPuaiZ6PT7sD6kLzKRMF85DLIZvSjbhGEMJ1DvF" clientKey:@"M9S80BeVSv992uUHtPRSvJIBiFpSPoMSKwqvZErv"];
     
-//    PFObject *player = [PFObject objectWithClassName:@"Player"];
-//    [player setObject:@"John" forKey:@"Name"];
-//    [player setObject:[NSNumber numberWithInt:1230] forKey:@"Score"];
-//    [player save];
-    
-//    PFObject *anotherPlayer = [PFObject objectWithClassName:@"Player"];
-//    [anotherPlayer setObject:@"Jack" forKey:@"Name"];
-//    [anotherPlayer setObject:[NSNumber numberWithInt:840] forKey:@"Score"];
-//    [anotherPlayer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        
-//        if (succeeded){
-//            NSLog(@"Object Uploaded!");
-//        }
-//        else{
-//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-//            NSLog(@"Error: %@", errorString);
-//        }
-//        
-//    }];
-    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Player"]; //1
-//    [query whereKey:@"Name" equalTo:@"John"];//2
-//    [query whereKey:@"Score" greaterThan:[NSNumber numberWithInt:1000]]; //3
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
-//        if (!error) {
-//            NSLog(@"Successfully retrieved: %@", objects);
-//        } else {
-//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-//            NSLog(@"Error: %@", errorString);
-//        }
-//    }];
-    
     return YES;
+}
+
+-(void)setAppearance
+{
+    [[UIApplication sharedApplication]setStatusBarHidden:YES];
+
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    NSObject *object = [prefs objectForKey:@"ColorTheme"];
+    if(object != nil){
+        
+        NSData *colourData = [[NSUserDefaults standardUserDefaults]objectForKey:@"ColorTheme"];
+        UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colourData];
+        
+        [[UINavigationBar appearance]setBackgroundColor:color];
+        [[UINavigationBar appearance] setBarTintColor:color];
+        [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+      //  [[UIBarButtonItem appearance] setTintColor:[]];
+      //  [[UINavigationController appearance]toolbar.barTintColor:color];
+    }
+    else {
+        
+        UIColor *startUpColour = [UIColor colorWithRed:0.945 green:0.329 blue:0.043 alpha:1];
+        
+        NSData *startUpColourData = [NSKeyedArchiver archivedDataWithRootObject:startUpColour];
+        [[NSUserDefaults standardUserDefaults]setObject:startUpColourData forKey:@"ColorTheme"];
+        
+        [[UINavigationBar appearance]setBackgroundColor:startUpColour];
+        [[UINavigationBar appearance] setBarTintColor:startUpColour];
+        [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+         }
+}
+
+-(void)setAppearance:(UIColor*)themeColor{
+    
+    [[UINavigationBar appearance]setBackgroundColor:themeColor];
+      [[UINavigationBar appearance] setBarTintColor:themeColor];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

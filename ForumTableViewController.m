@@ -19,18 +19,21 @@
 
 @implementation ForumTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
     [self getWallImages];
     [self.tableView reloadData];
     
-    
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSData *colourData = [[NSUserDefaults standardUserDefaults]objectForKey:@"ColorTheme"];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colourData];
+
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = color;
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(getWallImages) forControlEvents:UIControlEventValueChanged];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -69,9 +72,8 @@
     
     cell.textLabel.text = [wallObject objectForKey:@"fullTitles"];
     cell.detailTextLabel.text = [wallObject objectForKey:@"user"];
-    
+
     self.userName = [wallObject objectForKey:@"user"];
-    
     
    // PFFile *image = (PFFile *)[wallObject objectForKey:@"image"];
   //  UIImage *img = [UIImage imageWithData:image.getData];
@@ -82,7 +84,6 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    
     return self.userName;
 }
 
@@ -90,9 +91,6 @@
 {
     //Prepare the query to get all the images in descending order
     //1
-    
-  
-    
     PFQuery *query = [PFQuery queryWithClassName:@"QuestionTitles"];
     //2
     [query orderByDescending:@"createdAt"];
@@ -103,7 +101,7 @@
             self.wallObjectsArray = nil;
             self.wallObjectsArray = [[NSArray alloc] initWithArray:objects];
             
-            [self.tableView reloadData];
+            [self reloadData];
             
         } else {
             
@@ -111,33 +109,66 @@
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
+            [self.refreshControl endRefreshing];
         }
     }];
     
+}
+
+- (void)reloadData
+{
+    // Reload table data
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self performSelector:@selector(endRefresh) withObject:self afterDelay:1];
+    }
+}
+
+-(void)endRefresh
+{
+    [self.refreshControl endRefreshing];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ViewComments"]) {
         
- 
-        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         
         UITableViewCell *cell = (UITableViewCell *)[(UITableView *)self.view cellForRowAtIndexPath:indexPath];
         
-    //    UITableViewCell *cell = cellForRowAtIndexPath:indexPath;
+  
         self.titleToPass = cell.textLabel.text;
         self.titleToPass = [self.titleToPass stringByReplacingOccurrencesOfString:@" " withString:@""];
         
+        NSArray *characters = @[@"<", @"!", @"@", @"#", @"$", @"%", @"^", @"&", @"*", @"(", @")", @",", @"_", @"+", @"|", @">"];
         
-    
+        for (NSString *str in characters) {
+            self.titleToPass = [self.titleToPass stringByReplacingOccurrencesOfString:str withString:@""];
+        }
         [segue.destinationViewController setTitleNameString:self.titleToPass];
     }
 }
 
-
-
+- (IBAction)logoutButtonPressed:(id)sender
+{
+    BOOL loggedIn = NO;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:loggedIn forKey:@"loggedIn"];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end
